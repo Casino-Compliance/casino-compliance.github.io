@@ -1,125 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casino Compliance & Player Protection</title>
 
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
 
-  body {
-    background: #0b0e13;
-    color: #e6e9ef;
-    display: flex;
-    min-height: 100vh;
-  }
+body {
+  background: #0b0e13;
+  color: #e6e9ef;
+  display: flex;
+  min-height: 100vh;
+}
 
-  /* SIDEBAR */
-  .sidebar {
-    width: 240px;
-    background: #0f131a;
-    border-right: 1px solid #1f2433;
-    padding: 32px 20px;
-  }
+/* SIDEBAR – NICHT MEHR ÄNDERN */
+.sidebar {
+  width: 240px;
+  background: #0f131a;
+  border-right: 1px solid #1f2433;
+  padding: 32px 20px;
+}
 
-  .sidebar-title {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 32px;
-  }
+.sidebar-title {
+  font-weight: 600;
+  letter-spacing: .5px;
+  margin-bottom: 32px;
+}
 
-  .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
 
-  .nav a {
-    color: #cfd5e3;
-    text-decoration: none;
-    font-size: 15px;
-  }
+.nav a {
+  color: #cfd5e3;
+  text-decoration: none;
+  font-size: 15px;
+}
 
-  .nav a:hover {
-    color: #ffffff;
-  }
+.nav a:hover {
+  color: #ffffff;
+}
 
-  .nav .active {
-    color: #9bbcff;
-    font-weight: 500;
-    cursor: default;
-  }
+.nav .active {
+  color: #9bbcff;
+  font-weight: 500;
+  cursor: default;
+}
 
-  /* MAIN CONTENT */
-  .content {
-    flex: 1;
-    padding: 60px 70px;
-  }
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 80px 90px;
+}
 
-  h1 {
-    font-size: 42px;
-    font-weight: 500;
-    margin-bottom: 16px;
-  }
+.hero {
+  max-width: 1000px;
+}
 
-  .subtitle {
-    font-size: 18px;
-    color: #b5bdd3;
-    max-width: 820px;
-    margin-bottom: 40px;
-  }
+.hero h1 {
+  font-size: 44px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
 
-  .hero-image {
-    margin-bottom: 50px;
-  }
+.hero p {
+  font-size: 18px;
+  color: #b5bdd3;
+  line-height: 1.6;
+  max-width: 820px;
+  margin-bottom: 50px;
+}
 
-  .hero-image img {
-    width: 100%;
-    max-width: 900px;
-    border-radius: 10px;
-    opacity: 0.9;
-  }
+/* HERO IMAGE */
+.hero-image {
+  margin-bottom: 70px;
+}
 
-  .section-title {
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
+.hero-image img {
+  width: 100%;
+  border-radius: 12px;
+  opacity: 0.92;
+}
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 24px;
-  }
+/* WHAT WE DO */
+.section-title {
+  font-size: 22px;
+  margin-bottom: 26px;
+}
 
-  .card {
-    background: #121824;
-    border: 1px solid #1f2433;
-    border-radius: 10px;
-    padding: 22px;
-  }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+}
 
-  .card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
+.card {
+  background: #121824;
+  border: 1px solid #1f2433;
+  border-radius: 12px;
+  padding: 26px;
+}
 
-  .card p {
-    font-size: 14px;
-    color: #b8c0d8;
-    line-height: 1.5;
-  }
+.card h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
 
-  footer {
-    margin-top: 60px;
-    font-size: 13px;
-    color: #8b93aa;
-  }
+.card p {
+  font-size: 14px;
+  color: #b8c0d8;
+  line-height: 1.6;
+}
+
+footer {
+  margin-top: 80px;
+  font-size: 13px;
+  color: #8b93aa;
+  max-width: 900px;
+}
 </style>
 </head>
 
@@ -141,14 +149,16 @@
 <!-- CONTENT -->
 <div class="content">
 
-  <h1>Casino Compliance & Player Protection</h1>
-  <div class="subtitle">
-    Structured coordination of self-exclusion enforcement and dispute handling
-    in online gambling environments.
+  <div class="hero">
+    <h1>Casino Compliance & Player Protection</h1>
+    <p>
+      Structured coordination of self-exclusion enforcement and dispute handling
+      in online gambling environments.
+    </p>
   </div>
 
   <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200" alt="Consultation">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1400" alt="Consultation">
   </div>
 
   <div class="section-title">What We Do</div>
@@ -157,31 +167,31 @@
     <div class="card">
       <h3>Self-Exclusion Coordination</h3>
       <p>
-        Structured preparation, documentation and transmission of self-exclusion
-        notices to online gambling operators, including proof handling.
+        Preparation, documentation and structured submission of self-exclusion
+        notices, including proof of delivery and compliance tracking.
       </p>
     </div>
 
     <div class="card">
       <h3>Refund & Compliance Claims</h3>
       <p>
-        Assessment and coordination of complaints between players and operators,
-        including payment disputes and responsible gambling breaches.
+        Coordination of complaints between players and operators relating to
+        deposits, account handling, responsible gambling breaches and related issues.
       </p>
     </div>
 
     <div class="card">
       <h3>Dispute Escalation</h3>
       <p>
-        Structured escalation through operator channels and third-party dispute
-        platforms where applicable.
+        Structured escalation through internal operator channels and established
+        third-party dispute and mediation platforms where applicable.
       </p>
     </div>
   </div>
 
   <footer>
-    Casino Compliance is an independent claims coordination service.  
-    No legal advice or regulatory authority is provided.
+    Casino Compliance is an independent claims and dispute coordination service.
+    No legal advice, representation or regulatory authority is provided.
   </footer>
 
 </div>
