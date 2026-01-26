@@ -1,101 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Refund & Player Complaints</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refund & Player Complaints – Casino Compliance</title>
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
+  body {
+    background: #0b0e13;
+    color: #e6e9ef;
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 240px;
+    background: #0f131a;
+    border-right: 1px solid #1f2433;
+    padding: 32px 20px;
+  }
+
+  .sidebar-title {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 32px;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav a,
+  .nav a:visited {
+    color: #cfd5e3;
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .nav a:hover {
+    color: #ffffff;
+  }
+
+  .nav .active {
+    color: #9bbcff;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  /* CONTENT */
+  .content {
+    flex: 1;
+    padding: 80px 90px;
+    max-width: 1200px;
+  }
+
+  h1 {
+    font-size: 44px;
+    font-weight: 500;
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    font-size: 22px;
+    margin-top: 48px;
+    margin-bottom: 14px;
+  }
+
+  p, li {
+    font-size: 15px;
+    color: #b8c0d8;
+    line-height: 1.7;
+    max-width: 760px;
+  }
+
+  ul {
+    margin-left: 22px;
+    margin-top: 12px;
+  }
+
+  footer {
+    margin-top: 80px;
+    font-size: 13px;
+    color: #8b93aa;
+    max-width: 900px;
+  }
+</style>
 </head>
 
-<body style="
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
-  background:#0f1115;
-  color:#e6e6e6;
-">
+<body>
 
-<div style="display:flex; min-height:100vh;">
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <div class="sidebar-title">Casino Compliance</div>
+  <nav class="nav">
+    <a href="index.html">Overview</a>
+    <a href="self-exclusion.html">Self-Exclusion</a>
+    <span class="active">Refund & Player Complaints</span>
+    <a href="dispute-process.html">Dispute Process</a>
+    <a href="legal-notice.html">Legal Notice</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</div>
 
-  <!-- SIDEBAR -->
-  <div style="
-    width:240px;
-    background:#0c0f14;
-    border-right:1px solid #1f2433;
-    padding:32px 20px;
-  ">
-    <div style="font-weight:600; letter-spacing:.5px; margin-bottom:32px;">
-      Casino Compliance
-    </div>
+<!-- CONTENT -->
+<div class="content">
 
-    <nav style="display:flex; flex-direction:column; gap:14px;">
-      <a href="index.html" style="color:#e6e6e6; text-decoration:none;">Overview</a>
-      <a href="self-exclusion.html" style="color:#e6e6e6; text-decoration:none;">Self-Exclusion</a>
-      <a href="refund-claims.html" style="color:#9bbcff; text-decoration:none;">Refund & Player Complaints</a>
-      <a href="dispute-process.html" style="color:#e6e6e6; text-decoration:none;">Dispute Process</a>
-      <a href="legal-notice.html" style="color:#e6e6e6; text-decoration:none;">Legal Notice</a>
-      <a href="contact.html" style="color:#e6e6e6; text-decoration:none;">Contact</a>
-    </nav>
-  </div>
+  <h1>Refund Claims & Player Complaints</h1>
 
-  <!-- CONTENT -->
-  <div style="flex:1; padding:80px 64px; max-width:1000px;">
-    <h1>Refund Claims & Player Complaints</h1>
+  <p>
+    Casino Compliance coordinates and structures complaints and claims arising from
+    disputes between players and online gambling operators. This includes, but is
+    not limited to, refund-related matters.
+  </p>
 
-    <p style="max-width:760px;">
-      Casino Compliance coordinates and structures complaints and claims arising from
-      disputes between players and online gambling operators. This includes, but is
-      not limited to, refund-related matters.
-    </p>
+  <h2>Scope of Complaints</h2>
+  <p>
+    Player complaints may concern a wide range of issues, including account handling,
+    transaction processing, responsible gambling obligations, and the application
+    of operator terms and procedures.
+  </p>
 
-    <h2 style="margin-top:48px;">Scope of Complaints</h2>
-    <p style="max-width:760px;">
-      Player complaints may concern a wide range of issues, including account handling,
-      transaction processing, responsible gambling obligations, and the application
-      of operator terms and procedures.
-    </p>
+  <ul>
+    <li>Disputed deposits, withdrawals, or account balances</li>
+    <li>Account restrictions, closures, or verification issues</li>
+    <li>Alleged breaches of responsible gambling measures</li>
+    <li>Self-exclusion handling and enforcement failures</li>
+    <li>General complaints regarding operator conduct or procedure</li>
+  </ul>
 
-    <ul style="max-width:760px; line-height:1.8;">
-      <li>Disputed deposits, withdrawals, or account balances</li>
-      <li>Account restrictions, closures, or verification issues</li>
-      <li>Alleged breaches of responsible gambling measures</li>
-      <li>Self-exclusion handling and enforcement failures</li>
-      <li>General complaints regarding operator conduct or procedure</li>
-    </ul>
+  <h2>Compliance-Based Assessment</h2>
+  <p>
+    Complaints are assessed against applicable regulatory frameworks, operator
+    obligations, and generally accepted player protection standards. Particular
+    attention is given to whether operators have fulfilled their duty of care
+    once notified of relevant circumstances.
+  </p>
 
-    <h2 style="margin-top:56px;">Compliance-Based Assessment</h2>
-    <p style="max-width:760px;">
-      Complaints are assessed against applicable regulatory frameworks, operator
-      obligations, and generally accepted player protection standards. Particular
-      attention is given to whether operators have fulfilled their duty of care
-      once notified of relevant circumstances.
-    </p>
+  <p>
+    Where transactions or account actions occur following documented notification
+    (for example, a self-exclusion request or responsible gambling notice), such
+    actions may be subject to challenge on compliance grounds.
+  </p>
 
-    <p style="max-width:760px;">
-      Where transactions or account actions occur following documented notification
-      (for example, a self-exclusion request or responsible gambling notice), such
-      actions may be subject to challenge on compliance grounds.
-    </p>
+  <h2>Refund Considerations</h2>
+  <p>
+    Refund-related claims do not solely concern individual deposits. They may arise
+    from a broader pattern of non-compliant conduct, including the continued acceptance
+    of funds despite the existence of mandatory player protection obligations.
+  </p>
 
-    <h2 style="margin-top:56px;">Refund Considerations</h2>
-    <p style="max-width:760px;">
-      Refund-related claims do not solely concern individual deposits. They may arise
-      from a broader pattern of non-compliant conduct, including the continued acceptance
-      of funds despite the existence of mandatory player protection obligations.
-    </p>
+  <p>
+    Each case is reviewed individually based on its factual circumstances, available
+    documentation, and the regulatory context in which the operator is licensed.
+  </p>
 
-    <p style="max-width:760px;">
-      Each case is reviewed individually based on its factual circumstances, available
-      documentation, and the regulatory context in which the operator is licensed.
-    </p>
+  <h2>Process Orientation</h2>
+  <p>
+    Casino Compliance does not pursue speculative claims. All complaints are structured,
+    documented, and communicated in a formal manner, with clearly defined timelines
+    and escalation pathways.
+  </p>
 
-    <h2 style="margin-top:56px;">Process Orientation</h2>
-    <p style="max-width:760px;">
-      Casino Compliance does not pursue speculative claims. All complaints are structured,
-      documented, and communicated in a formal manner, with clearly defined timelines
-      and escalation pathways.
-    </p>
-
-  </div>
+  <footer>
+    Casino Compliance is an independent compliance and dispute coordination service.
+    No legal advice, representation or regulatory authority is provided.
+  </footer>
 
 </div>
+
 </body>
 </html>
