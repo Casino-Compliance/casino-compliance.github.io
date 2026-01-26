@@ -1,65 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Contact</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Contact – Casino Compliance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      background: #0f1115;
+      color: #e6e6e6;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* SIDEBAR */
+    .sidebar {
+      width: 260px;
+      background: #0b0d11;
+      padding: 32px 24px;
+      border-right: 1px solid #1c1f26;
+    }
+
+    .sidebar-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 32px;
+      color: #ffffff;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .nav a,
+    .nav span {
+      font-size: 15px;
+      color: #ffffff;
+      text-decoration: none;
+      opacity: 0.85;
+    }
+
+    .nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    .nav .active {
+      font-weight: 600;
+      opacity: 1;
+      cursor: default;
+    }
+
+    /* CONTENT */
+    .content {
+      flex: 1;
+      padding: 80px 64px;
+      max-width: 1000px;
+    }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      font-size: 22px;
+    }
+
+    p, li {
+      max-width: 760px;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    a.email {
+      color: #9bbcff;
+      text-decoration: none;
+    }
+
+    a.email:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
-<body style="
-  margin:0;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
-  background:#0f1115;
-  color:#e6e6e6;
-">
+<body>
 
-<div style="display:flex; min-height:100vh;">
+<div class="layout">
 
- <!-- SIDEBAR -->
-<div class="sidebar">
-  <div class="sidebar-title">Casino Compliance</div>
-  <nav class="nav">
-    <span class="active">Overview</span>
-    <a href="self-exclusion.html">Self-Exclusion</a>
-    <a href="refund-claims.html">Refund & Player Complaints</a>
-    <a href="dispute-process.html">Dispute Process</a>
-    <a href="legal-notice.html">Legal Notice</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</div>
-  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-title">Casino Compliance</div>
+    <nav class="nav">
+      <a href="index.html">Overview</a>
+      <a href="self-exclusion.html">Self-Exclusion</a>
+      <a href="refund-claims.html">Refund & Player Complaints</a>
+      <a href="dispute-process.html">Dispute Process</a>
+      <a href="legal-notice.html">Legal Notice</a>
+      <span class="active">Contact</span>
+    </nav>
+  </aside>
+
   <!-- CONTENT -->
-  <div style="flex:1; padding:80px 64px; max-width:1000px;">
+  <main class="content">
     <h1>Contact</h1>
 
-    <p style="max-width:760px;">
+    <p>
       Casino Compliance handles general inquiries related to compliance coordination
       and dispute process information. Case-related communication is conducted only
       after review of relevant documentation.
     </p>
 
-    <h2 style="margin-top:40px;">General Inquiries</h2>
-    <p style="max-width:760px;">
-      <a href="mailto:support@casino-compliance.com" style="color:#9bbcff;">
+    <h2>General Inquiries</h2>
+    <p>
+      <a href="mailto:support@casino-compliance.com" class="email">
         support@casino-compliance.com
       </a>
     </p>
 
-    <h2 style="margin-top:40px;">Operational Communication</h2>
-    <p style="max-width:760px;">
+    <h2>Operational Communication</h2>
+    <p>
       For claim coordination and operator communication, designated channels are used
       on a case-by-case basis.
     </p>
 
-    <h2 style="margin-top:40px;">Notes</h2>
-    <ul style="max-width:760px; line-height:1.8;">
+    <h2>Notes</h2>
+    <ul>
       <li>No unsolicited submissions are reviewed</li>
       <li>No legal advice is provided</li>
       <li>All communications are documented</li>
     </ul>
-
-  </div>
+  </main>
 
 </div>
+
 </body>
 </html>
