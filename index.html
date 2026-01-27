@@ -1,22 +1,26 @@
-<link rel="alternate" hreflang="en" href="https://casino-compliance.com/index.html">
-<link rel="alternate" hreflang="de" href="https://casino-compliance.com/de/index.html">
-<script>
-(function () {
-  if (window.location.pathname.startsWith('/de')) return;
-
-  const lang = navigator.language || navigator.userLanguage;
-  if (lang && lang.toLowerCase().startsWith('de')) {
-    window.location.href = '/de/index.html';
-  }
-})();
-</script>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casino Compliance & Player Protection</title>
+
+<!-- SEO Sprachzuordnung -->
+<link rel="alternate" hreflang="en" href="https://casino-compliance.com/index.html">
+<link rel="alternate" hreflang="de" href="https://casino-compliance.com/de/index.html">
+
+<!-- Automatische DE-Erkennung (NUR hier!) -->
+<script>
+(function () {
+  if (sessionStorage.getItem("langRedirected")) return;
+
+  var lang = navigator.language || navigator.userLanguage;
+  if (lang && lang.toLowerCase().startsWith("de")) {
+    sessionStorage.setItem("langRedirected", "1");
+    window.location.href = "/de/index.html";
+  }
+})();
+</script>
 
 <style>
   * {
@@ -33,7 +37,6 @@
     min-height: 100vh;
   }
 
-  /* SIDEBAR */
   .sidebar {
     width: 240px;
     background: #0f131a;
@@ -43,7 +46,6 @@
 
   .sidebar-title {
     font-weight: 600;
-    letter-spacing: 0.5px;
     margin-bottom: 32px;
   }
 
@@ -54,12 +56,10 @@
   }
 
   .nav a,
-  .nav a:visited,
   .nav span {
     color: #cfd5e3;
     text-decoration: none;
     font-size: 15px;
-    white-space: nowrap;
   }
 
   .nav a:hover {
@@ -69,54 +69,55 @@
   .nav .active {
     color: #9bbcff;
     font-weight: 500;
-    cursor: default;
   }
 
-  /* CONTENT */
   .content {
     flex: 1;
     padding: 80px 90px;
     max-width: 1200px;
   }
 
+  .language-switch {
+    text-align: right;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .language-switch a,
+  .language-switch span {
+    margin-left: 8px;
+    color: #cfd5e3;
+    text-decoration: none;
+  }
+
+  .language-switch .active {
+    color: #9bbcff;
+    font-weight: 500;
+  }
+
   h1 {
     font-size: 44px;
-    font-weight: 500;
     margin-bottom: 18px;
-    max-width: 900px;
   }
 
   .subtitle {
     font-size: 18px;
     color: #b5bdd3;
-    line-height: 1.6;
     max-width: 820px;
     margin-bottom: 28px;
   }
 
-  /* SMALL VISUAL */
-  .visual {
-    margin: 18px 0 52px 0;
-  }
-
   .visual img {
-    width: 100%;
     max-width: 520px;
     border-radius: 10px;
     opacity: 0.28;
-    display: block;
-  }
-
-  .section-title {
-    font-size: 22px;
-    margin-bottom: 26px;
+    margin-bottom: 52px;
   }
 
   .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 28px;
-    max-width: 1100px;
   }
 
   .card {
@@ -126,78 +127,27 @@
     padding: 26px;
   }
 
-  .card h3 {
-    font-size: 16px;
-    margin-bottom: 12px;
-  }
-
-  .card p {
-    font-size: 14px;
-    color: #b8c0d8;
-    line-height: 1.6;
-  }
-
   footer {
     margin-top: 80px;
     font-size: 13px;
     color: #8b93aa;
-    max-width: 900px;
   }
 
-  /* =========================
-     MOBILE OPTIMIERUNG
-     ========================= */
   @media (max-width: 900px) {
-
-    body {
-      flex-direction: column;
-    }
-
+    body { flex-direction: column; }
     .sidebar {
       width: 100%;
       border-right: none;
       border-bottom: 1px solid #1f2433;
-      padding: 20px;
     }
-
-    .nav {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 12px 16px;
-    }
-
-    .nav a,
-    .nav span {
-      font-size: 14px;
-    }
-
-    .content {
-      padding: 40px 24px;
-    }
-
-    h1 {
-      font-size: 32px;
-    }
-
-    .subtitle {
-      font-size: 16px;
-    }
-
-    .visual img {
-      max-width: 100%;
-      margin: 0 auto;
-    }
-
-    .cards {
-      grid-template-columns: 1fr;
-    }
+    .content { padding: 40px 24px; }
+    h1 { font-size: 32px; }
   }
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
   <div class="sidebar-title">Casino Compliance</div>
   <nav class="nav">
@@ -210,13 +160,12 @@
   </nav>
 </div>
 
-<!-- CONTENT -->
 <div class="content">
 
- <div class="language-switch">
-  <span class="active">EN</span>
-  <a href="https://casino-compliance.com/de/">DE</a>
-</div>
+  <div class="language-switch">
+    <span class="active">EN</span>
+    <a href="/de/index.html">DE</a>
+  </div>
 
   <h1>Casino Compliance & Player Protection</h1>
 
@@ -226,61 +175,29 @@
   </div>
 
   <div class="visual">
-    <img
-      src="https://casinoalpha.ie/wp-content/uploads/2022/08/Guide-to-casino-complaints-1024x576.jpg"
-      alt="Roulette wheel detail"
-    >
+    <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=900" alt="Roulette detail">
   </div>
-
-  <div class="section-title">What We Do</div>
 
   <div class="cards">
     <div class="card">
       <h3>Self-Exclusion Coordination</h3>
-      <p>
-        Preparation, documentation and structured transmission of self-exclusion
-        notices, including preservation of delivery records.
-      </p>
+      <p>Structured preparation and documentation of exclusion notices.</p>
     </div>
-
     <div class="card">
       <h3>Refund & Player Complaints</h3>
-      <p>
-        Coordination of complaints between players and operators relating to
-        payments, account handling, responsible gambling obligations and procedures.
-      </p>
+      <p>Coordination of disputes relating to payments and account handling.</p>
     </div>
-
     <div class="card">
       <h3>Dispute Escalation</h3>
-      <p>
-        Structured escalation through operator channels and established third-party
-        dispute and mediation mechanisms where applicable.
-      </p>
+      <p>Escalation through operator and third-party dispute mechanisms.</p>
     </div>
   </div>
 
   <footer>
-    Casino Compliance is an independent compliance and dispute coordination service.
-    No legal advice, representation or regulatory authority is provided.
+    Independent compliance and dispute coordination service. No legal advice.
   </footer>
 
 </div>
-  <script>
-(function () {
-  // Wenn User schon eine Sprache gewählt hat → NICHTS tun
-  if (localStorage.getItem("langSelected")) return;
-
-  // Browser-Sprache prüfen
-  var lang = navigator.language || navigator.userLanguage;
-
-  // Deutsch erkannt → weiterleiten
-  if (lang && lang.toLowerCase().startsWith("de")) {
-    window.location.href = "/de/";
-  }
-})();
-</script>
-
 
 </body>
 </html>
