@@ -1,3 +1,14 @@
+<script>
+(function () {
+  if (window.location.pathname.startsWith('/de')) return;
+
+  const lang = navigator.language || navigator.userLanguage;
+  if (lang && lang.toLowerCase().startsWith('de')) {
+    window.location.href = '/de/index.html';
+  }
+})();
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
