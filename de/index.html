@@ -5,13 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casino Compliance & Spielerschutz</title>
 
-<!-- hreflang -->
 <link rel="alternate" hreflang="de" href="https://casino-compliance.com/de/">
 <link rel="alternate" hreflang="en" href="https://casino-compliance.com/">
 
 <style>
- 
-}
   * {
     box-sizing: border-box;
     margin: 0;
@@ -26,32 +23,7 @@
     min-height: 100vh;
   }
 
-  /* Language Switch */
-  .language-switch {
-    position: absolute;
-    top: 24px;
-    right: 32px;
-    font-size: 14px;
-  }
-
-  .language-switch a,
-  .language-switch span {
-    color: #cfd5e3;
-    text-decoration: none;
-    margin-left: 8px;
-  }
-
-  .language-switch .active {
-    color: #9bbcff;
-    font-weight: 500;
-    cursor: default;
-  }
-
-  .language-switch a:hover {
-    color: #ffffff;
-  }
-
-  /* Sidebar */
+  /* SIDEBAR */
   .sidebar {
     width: 240px;
     background: #0f131a;
@@ -89,12 +61,35 @@
     cursor: default;
   }
 
-  /* Content */
+  /* CONTENT */
   .content {
     flex: 1;
     padding: 80px 90px;
     max-width: 1200px;
-    position: relative;
+  }
+
+  /* LANGUAGE SWITCH – NORMAL FLOW */
+  .language-switch {
+    font-size: 14px;
+    margin-bottom: 24px;
+    text-align: right;
+  }
+
+  .language-switch a,
+  .language-switch span {
+    color: #cfd5e3;
+    text-decoration: none;
+    margin-left: 8px;
+  }
+
+  .language-switch .active {
+    color: #9bbcff;
+    font-weight: 500;
+    cursor: default;
+  }
+
+  .language-switch a:hover {
+    color: #ffffff;
   }
 
   h1 {
@@ -113,8 +108,39 @@
 
   .visual img {
     max-width: 520px;
-    opacity: 0.28;
     border-radius: 10px;
+    opacity: 0.28;
+    margin-bottom: 52px;
+  }
+
+  .section-title {
+    font-size: 22px;
+    margin-bottom: 26px;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+    max-width: 1100px;
+  }
+
+  .card {
+    background: #121824;
+    border: 1px solid #1f2433;
+    border-radius: 12px;
+    padding: 26px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    font-size: 14px;
+    color: #b8c0d8;
+    line-height: 1.6;
   }
 
   footer {
@@ -124,43 +150,25 @@
   }
 
   @media (max-width: 900px) {
-    body { flex-direction: column; }
+    body {
+      flex-direction: column;
+    }
+
     .sidebar {
       width: 100%;
       border-right: none;
       border-bottom: 1px solid #1f2433;
     }
-    .content { padding: 40px 24px; }
-    h1 { font-size: 32px; }
-    .language-switch {
-      position: static;
-      margin-bottom: 16px;
-      text-align: right;
+
+    .content {
+      padding: 40px 24px;
+    }
+
+    h1 {
+      font-size: 32px;
     }
   }
 </style>
-
-<!-- 🔥 KRITISCHER FIX -->
-<script>
-(function () {
-  const params = new URLSearchParams(window.location.search);
-
-  // Wenn User bewusst EN gewählt hat → merken & NICHT umleiten
-  if (params.get("lang") === "en") {
-    localStorage.setItem("langSelected", "en");
-    return;
-  }
-
-  // Wenn User schon gewählt hat → nichts tun
-  if (localStorage.getItem("langSelected")) return;
-
-  // Browser-Sprache prüfen (nur beim ersten Besuch)
-  const lang = navigator.language || navigator.userLanguage;
-  if (lang && lang.toLowerCase().startsWith("de")) return;
-
-})();
-</script>
-
 </head>
 
 <body>
@@ -179,10 +187,9 @@
 
 <div class="content">
 
-  <!-- 🔁 Sprachwechsel -->
+  <!-- SPRACHWECHSEL – GARANTIERT KLICKBAR -->
   <div class="language-switch">
-   
-    <a href="/?lang=en">EN</a>
+    <a href="/">EN</a>
     <span class="active">DE</span>
   </div>
 
@@ -195,6 +202,34 @@
 
   <div class="visual">
     <img src="https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=900" alt="Roulette Detail">
+  </div>
+
+  <div class="section-title">Was wir tun</div>
+
+  <div class="cards">
+    <div class="card">
+      <h3>Selbstausschluss-Koordination</h3>
+      <p>
+        Strukturierte Erstellung, Übermittlung und Dokumentation von
+        Selbstausschluss-Mitteilungen einschließlich Nachweisführung.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Rückerstattungen & Spielerbeschwerden</h3>
+      <p>
+        Koordination von Beschwerden zwischen Spielern und Betreibern
+        in Bezug auf Zahlungen, Kontoführung und Spielerschutzpflichten.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Streitfall-Eskalation</h3>
+      <p>
+        Strukturierte Eskalation über Betreiberkanäle und
+        externe Streitbeilegungsstellen, sofern anwendbar.
+      </p>
+    </div>
   </div>
 
   <footer>
