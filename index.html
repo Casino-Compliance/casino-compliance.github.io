@@ -266,6 +266,21 @@
   </footer>
 
 </div>
+  <script>
+(function () {
+  // Wenn User schon eine Sprache gewählt hat → NICHTS tun
+  if (localStorage.getItem("langSelected")) return;
+
+  // Browser-Sprache prüfen
+  var lang = navigator.language || navigator.userLanguage;
+
+  // Deutsch erkannt → weiterleiten
+  if (lang && lang.toLowerCase().startsWith("de")) {
+    window.location.href = "/de/";
+  }
+})();
+</script>
+
 
 </body>
 </html>
