@@ -98,6 +98,29 @@
     color: #8b93aa;
     max-width: 900px;
   }
+ .language-switch {
+  font-size: 14px;
+  margin-bottom: 24px;
+  text-align: right;
+}
+
+.language-switch a,
+.language-switch span {
+  color: #cfd5e3;
+  text-decoration: none;
+  margin-left: 8px;
+}
+
+.language-switch .active {
+  color: #9bbcff;
+  font-weight: 500;
+  cursor: default;
+}
+
+.language-switch a:hover {
+  color: #ffffff;
+}
+
 
   /* MOBILE */
   @media (max-width: 900px) {
@@ -151,6 +174,10 @@
 
 <!-- CONTENT -->
 <div class="content">
+ <div class="language-switch">
+  <a href="/self-exclusion.html">EN</a>
+  <span class="active">DE</span>
+</div>
 
   <h1>Durchsetzung von Selbstausschlüssen</h1>
 
