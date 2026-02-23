@@ -75,7 +75,6 @@
     margin-bottom: 12px;
     margin-top: 28px;
   }
-
   .nav-section:first-of-type { margin-top: 0; }
 
   nav a, nav span {
@@ -128,7 +127,6 @@
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-
   .eyebrow::before {
     content: '';
     display: block;
@@ -145,27 +143,25 @@
     margin-bottom: 20px;
     color: var(--text);
   }
-
   h1 em { font-style: italic; color: var(--accent2); }
 
   .subtitle {
     font-size: 16px;
     color: var(--muted);
     max-width: 560px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     line-height: 1.8;
   }
+  .subtitle a { color: var(--accent); text-decoration: none; }
+  .subtitle a:hover { color: var(--accent2); }
 
-  /* CONTACT BLOCKS */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2px;
-    background: var(--border);
+  /* ── CONTACT FORM ── */
+  .contact-form {
+    background: var(--navy2);
     border: 1px solid var(--border);
     border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 48px;
+    padding: 36px 40px;
+    margin-bottom: 16px;
     animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
   }
 
@@ -174,67 +170,16 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .contact-block {
-    background: var(--navy2);
-    padding: 32px 28px;
-    transition: background 0.25s;
-  }
-
-  .contact-block:hover { background: var(--navy3); }
-
-  .contact-block-icon {
-    font-size: 20px;
-    margin-bottom: 14px;
-    display: block;
-  }
-
-  .contact-block h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-
-  .contact-block p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .contact-block a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-
-  .contact-block a:hover { color: var(--accent2); }
-
-  /* NOTES */
-  .notes {
-    background: var(--navy2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px 36px;
-    margin-bottom: 48px;
-    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
-    animation-delay: 0.1s;
-  }
-
   .section-label {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--accent);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-
   .section-label::before {
     content: '';
     display: block;
@@ -243,12 +188,135 @@
     background: var(--accent);
   }
 
-  .notes-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
   }
+
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+
+  input, textarea, select {
+    background: var(--navy3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 11px 14px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.5; }
+  input:focus, textarea:focus, select:focus { border-color: rgba(200,169,110,0.5); }
+  select option { background: var(--navy3); }
+  textarea { resize: vertical; min-height: 110px; }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 16px;
+  }
+
+  .form-note { font-size: 12px; color: var(--muted); opacity: 0.65; }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--navy);
+    padding: 12px 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: var(--accent2); transform: translateY(-2px); }
+
+  .form-success {
+    display: none;
+    background: rgba(200,169,110,0.08);
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--accent2);
+  }
+
+  /* ── QUICK CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.1s;
+  }
+
+  .contact-block {
+    background: var(--navy2);
+    padding: 28px;
+    transition: background 0.25s;
+  }
+  .contact-block:hover { background: var(--navy3); }
+
+  .contact-block-icon { font-size: 18px; margin-bottom: 12px; display: block; }
+
+  .contact-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .contact-block p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+
+  .contact-block a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .contact-block a:hover { color: var(--accent2); }
+
+  /* NOTES */
+  .notes {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.15s;
+  }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 
   .notes-list li {
     display: flex;
@@ -257,19 +325,14 @@
     color: var(--muted);
     line-height: 1.6;
   }
-
-  .notes-list li::before {
-    content: '—';
-    color: var(--accent);
-    flex-shrink: 0;
-  }
+  .notes-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
 
   /* OPERATOR CTA */
   .operator-cta {
     background: linear-gradient(135deg, rgba(200,169,110,0.08), rgba(200,169,110,0.03));
     border: 1px solid rgba(200,169,110,0.25);
     border-radius: 6px;
-    padding: 32px 36px;
+    padding: 28px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -278,11 +341,7 @@
     animation-delay: 0.2s;
   }
 
-  .operator-cta p {
-    font-size: 14px;
-    color: var(--muted);
-  }
-
+  .operator-cta p { font-size: 14px; color: var(--muted); }
   .operator-cta strong {
     display: block;
     font-family: 'Cormorant Garamond', serif;
@@ -292,28 +351,8 @@
     margin-bottom: 6px;
   }
 
-  .btn {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--navy);
-    padding: 12px 26px;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .btn:hover { background: var(--accent2); transform: translateY(-2px); }
-
-  /* FOOTER */
   footer {
-    margin-top: 60px;
+    margin-top: 40px;
     padding-top: 28px;
     border-top: 1px solid var(--border);
     font-size: 12px;
@@ -321,13 +360,15 @@
     opacity: 0.6;
   }
 
-  /* MOBILE */
   @media (max-width: 860px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; min-height: unset; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
     .sidebar-footer { margin-top: 24px; }
     .content { padding: 40px 24px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
     .operator-cta { flex-direction: column; align-items: flex-start; }
+    .form-actions { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
@@ -374,30 +415,63 @@
 <div class="content">
 
   <div class="eyebrow">Get in Touch</div>
-
   <h1>Contact <em>Us</em></h1>
 
   <p class="subtitle">
-    We handle general inquiries related to compliance coordination and dispute process information. Case-related communication is conducted only after review of relevant documentation.
+    Send us a message below or write directly to <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>. We respond within 48 business hours.
   </p>
 
-  <!-- CONTACT BLOCKS -->
+  <!-- FORM -->
+  <div class="contact-form">
+    <div class="section-label">Send a Message</div>
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group full">
+          <label for="subject">Topic</label>
+          <select id="subject" name="subject">
+            <option value="">Select a topic...</option>
+            <option value="self-exclusion">Self-Exclusion Request</option>
+            <option value="refund-claim">Refund Claim</option>
+            <option value="player-complaint">Player Complaint</option>
+            <option value="operator-inquiry">Operator Inquiry (B2B)</option>
+            <option value="general">General Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Please describe your situation or inquiry..." required></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <span class="form-note">No legal advice provided. All communications are documented.</span>
+        <button type="submit" class="btn">Send Message</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        ✓ Message sent. We will respond within 48 business hours.
+      </div>
+    </form>
+  </div>
+
+  <!-- QUICK CONTACT -->
   <div class="contact-grid">
     <div class="contact-block">
       <span class="contact-block-icon">✉️</span>
-      <h3>General Inquiries</h3>
-      <p>Questions about our services, process, or scope of work.</p>
+      <h3>Direct Email</h3>
+      <p>Prefer to write directly? We respond within 48 business hours.</p>
       <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>
     </div>
     <div class="contact-block">
       <span class="contact-block-icon">📋</span>
       <h3>Case Coordination</h3>
-      <p>For active claim coordination, designated communication channels are assigned on a case-by-case basis after initial review.</p>
-    </div>
-    <div class="contact-block">
-      <span class="contact-block-icon">⏱️</span>
-      <h3>Response Time</h3>
-      <p>We aim to respond to all general inquiries within 48 business hours. Complex cases may require additional review time.</p>
+      <p>For active claim coordination, dedicated communication channels are assigned after initial review of your documentation.</p>
     </div>
   </div>
 
@@ -426,5 +500,18 @@
   </footer>
 
 </div>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    if (this.action.includes('YOUR_FORM_ID')) {
+      e.preventDefault();
+      const success = document.getElementById('formSuccess');
+      success.style.display = 'block';
+      this.reset();
+      setTimeout(() => { success.style.display = 'none'; }, 5000);
+    }
+  });
+</script>
+
 </body>
 </html>
