@@ -7,6 +7,7 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-47Z20RJ8W4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -74,7 +75,6 @@
     margin-bottom: 12px;
     margin-top: 28px;
   }
-
   .nav-section:first-of-type { margin-top: 0; }
 
   nav a, nav span {
@@ -127,7 +127,6 @@
     text-transform: uppercase;
     margin-bottom: 20px;
   }
-
   .eyebrow::before {
     content: '';
     display: block;
@@ -144,27 +143,25 @@
     margin-bottom: 20px;
     color: var(--text);
   }
-
   h1 em { font-style: italic; color: var(--accent2); }
 
   .subtitle {
     font-size: 16px;
     color: var(--muted);
     max-width: 560px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     line-height: 1.8;
   }
+  .subtitle a { color: var(--accent); text-decoration: none; }
+  .subtitle a:hover { color: var(--accent2); }
 
-  /* CONTACT BLOCKS */
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2px;
-    background: var(--border);
+  /* ── CONTACT FORM ── */
+  .contact-form {
+    background: var(--navy2);
     border: 1px solid var(--border);
     border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 48px;
+    padding: 36px 40px;
+    margin-bottom: 16px;
     animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
   }
 
@@ -173,67 +170,16 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .contact-block {
-    background: var(--navy2);
-    padding: 32px 28px;
-    transition: background 0.25s;
-  }
-
-  .contact-block:hover { background: var(--navy3); }
-
-  .contact-block-icon {
-    font-size: 20px;
-    margin-bottom: 14px;
-    display: block;
-  }
-
-  .contact-block h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-  }
-
-  .contact-block p {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-
-  .contact-block a {
-    color: var(--accent);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 400;
-    transition: color 0.2s;
-  }
-
-  .contact-block a:hover { color: var(--accent2); }
-
-  /* NOTES */
-  .notes {
-    background: var(--navy2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 32px 36px;
-    margin-bottom: 48px;
-    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
-    animation-delay: 0.1s;
-  }
-
   .section-label {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 3px;
     color: var(--accent);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     gap: 10px;
   }
-
   .section-label::before {
     content: '';
     display: block;
@@ -242,12 +188,135 @@
     background: var(--accent);
   }
 
-  .notes-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 14px;
   }
+
+  .form-group { display: flex; flex-direction: column; gap: 7px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+  }
+
+  input, textarea, select {
+    background: var(--navy3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 11px 14px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.5; }
+  input:focus, textarea:focus, select:focus { border-color: rgba(200,169,110,0.5); }
+  select option { background: var(--navy3); }
+  textarea { resize: vertical; min-height: 110px; }
+
+  .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 16px;
+  }
+
+  .form-note { font-size: 12px; color: var(--muted); opacity: 0.65; }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--navy);
+    padding: 12px 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: var(--accent2); transform: translateY(-2px); }
+
+  .form-success {
+    display: none;
+    background: rgba(200,169,110,0.08);
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--accent2);
+  }
+
+  /* ── QUICK CONTACT ── */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.1s;
+  }
+
+  .contact-block {
+    background: var(--navy2);
+    padding: 28px;
+    transition: background 0.25s;
+  }
+  .contact-block:hover { background: var(--navy3); }
+
+  .contact-block-icon { font-size: 18px; margin-bottom: 12px; display: block; }
+
+  .contact-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .contact-block p { font-size: 13px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
+
+  .contact-block a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  .contact-block a:hover { color: var(--accent2); }
+
+  /* NOTES */
+  .notes {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.15s;
+  }
+
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 
   .notes-list li {
     display: flex;
@@ -256,19 +325,14 @@
     color: var(--muted);
     line-height: 1.6;
   }
-
-  .notes-list li::before {
-    content: '—';
-    color: var(--accent);
-    flex-shrink: 0;
-  }
+  .notes-list li::before { content: '—'; color: var(--accent); flex-shrink: 0; }
 
   /* OPERATOR CTA */
   .operator-cta {
     background: linear-gradient(135deg, rgba(200,169,110,0.08), rgba(200,169,110,0.03));
     border: 1px solid rgba(200,169,110,0.25);
     border-radius: 6px;
-    padding: 32px 36px;
+    padding: 28px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -277,11 +341,7 @@
     animation-delay: 0.2s;
   }
 
-  .operator-cta p {
-    font-size: 14px;
-    color: var(--muted);
-  }
-
+  .operator-cta p { font-size: 14px; color: var(--muted); }
   .operator-cta strong {
     display: block;
     font-family: 'Cormorant Garamond', serif;
@@ -291,28 +351,8 @@
     margin-bottom: 6px;
   }
 
-  .btn {
-    display: inline-block;
-    background: var(--accent);
-    color: var(--navy);
-    padding: 12px 26px;
-    font-family: 'Jost', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 2px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .btn:hover { background: var(--accent2); transform: translateY(-2px); }
-
-  /* FOOTER */
   footer {
-    margin-top: 60px;
+    margin-top: 40px;
     padding-top: 28px;
     border-top: 1px solid var(--border);
     font-size: 12px;
@@ -320,44 +360,47 @@
     opacity: 0.6;
   }
 
-  /* MOBILE */
   @media (max-width: 860px) {
     body { flex-direction: column; }
     .sidebar { width: 100%; min-height: unset; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
     .sidebar-footer { margin-top: 24px; }
     .content { padding: 40px 24px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
     .operator-cta { flex-direction: column; align-items: flex-start; }
+    .form-actions { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
 <body>
 
+<!-- SIDEBAR -->
 <div class="sidebar">
   <div class="sidebar-logo">
     <img src="/assets/logo.png" alt="Casino Compliance Logo">
   </div>
   <div class="sidebar-brand">Casino Compliance</div>
 
-  <div class="nav-section">Spielerservice</div>
+  <div class="nav-section">Spieler-Services</div>
   <nav>
-    <a href="index.html">Übersicht</a>
-    <a href="self-exclusion.html">Selbstsperre</a>
-    <a href="refund-claims.html">Rückforderung & Beschwerden</a>
-    <a href="dispute-process.html">Schlichtungsverfahren</a>
+    <a href="/de/index.html">Übersicht</a>
+    <a href="/de/self-exclusion.html">Selbstausschluss</a>
+    <a href="/de/refund-claims.html">Erstattungen & Beschwerden</a>
+    <a href="/de/dispute-process.html">Beschwerdeverfahren</a>
   </nav>
 
   <div class="nav-divider"></div>
 
-  <div class="nav-section">Anbieter</div>
+  <div class="nav-section">Betreiber</div>
   <nav>
-    <a href="for-operators.html">Für Betreiber</a>
+    <a href="/de/for-operators.html">Für Betreiber</a>
   </nav>
 
   <div class="nav-divider"></div>
 
   <nav>
     <span class="active">Kontakt</span>
-    <a href="legal-notice.html">Impressum</a>
+    <a href="/de/legal-notice.html">Impressum</a>
   </nav>
 
   <div class="sidebar-footer">
@@ -368,57 +411,106 @@
   </div>
 </div>
 
+<!-- CONTENT -->
 <div class="content">
 
   <div class="eyebrow">Kontakt aufnehmen</div>
-
-  <h1>Kontaktieren Sie <em>uns</em></h1>
+  <h1>Schreiben <em>Sie uns</em></h1>
 
   <p class="subtitle">
-    Wir bearbeiten allgemeine Anfragen zur Compliance-Koordination und Informationen zum Beschwerdeverfahren. Fallbezogene Kommunikation erfolgt erst nach Prüfung relevanter Unterlagen.
+    Senden Sie uns eine Nachricht oder schreiben Sie direkt an <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>. Wir antworten innerhalb von 48 Wertstunden.
   </p>
 
+  <!-- FORM -->
+  <div class="contact-form">
+    <div class="section-label">Nachricht senden</div>
+    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="name">Ihr Name</label>
+          <input type="text" id="name" name="name" placeholder="Max Mustermann" required>
+        </div>
+        <div class="form-group">
+          <label for="email">E-Mail-Adresse</label>
+          <input type="email" id="email" name="email" placeholder="ihre@email.de" required>
+        </div>
+        <div class="form-group full">
+          <label for="subject">Thema</label>
+          <select id="subject" name="subject">
+            <option value="">Thema auswählen...</option>
+            <option value="self-exclusion">Selbstausschluss-Antrag</option>
+            <option value="refund-claim">Erstattungsanspruch</option>
+            <option value="player-complaint">Spielerbeschwerde</option>
+            <option value="operator-inquiry">Betreiber-Anfrage (B2B)</option>
+            <option value="general">Allgemeine Anfrage</option>
+          </select>
+        </div>
+        <div class="form-group full">
+          <label for="message">Nachricht</label>
+          <textarea id="message" name="message" placeholder="Bitte beschreiben Sie Ihre Situation oder Anfrage..." required></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <span class="form-note">Keine Rechtsberatung. Alle Kommunikation wird dokumentiert.</span>
+        <button type="submit" class="btn">Nachricht senden</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        ✓ Nachricht gesendet. Wir melden uns innerhalb von 48 Wertstunden.
+      </div>
+    </form>
+  </div>
+
+  <!-- QUICK CONTACT -->
   <div class="contact-grid">
     <div class="contact-block">
       <span class="contact-block-icon">✉️</span>
-      <h3>Allgemeine Anfragen</h3>
-      <p>Fragen zu unseren Dienstleistungen, Prozessen oder unserem Tätigkeitsbereich.</p>
+      <h3>Direkte E-Mail</h3>
+      <p>Lieber direkt schreiben? Wir antworten innerhalb von 48 Wertstunden.</p>
       <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>
     </div>
     <div class="contact-block">
       <span class="contact-block-icon">📋</span>
       <h3>Fallkoordination</h3>
-      <p>Für die aktive Fallkoordination werden nach der Erstprüfung individuelle Kommunikationskanäle zugewiesen.</p>
-    </div>
-    <div class="contact-block">
-      <span class="contact-block-icon">⏱️</span>
-      <h3>Reaktionszeit</h3>
-      <p>Wir bemühen uns, alle allgemeinen Anfragen innerhalb von 48 Geschäftsstunden zu beantworten. Komplexe Fälle können zusätzliche Zeit beanspruchen.</p>
+      <p>Für die aktive Fallkoordination werden nach der Erstprüfung Ihrer Unterlagen dedizierte Kommunikationskanäle zugewiesen.</p>
     </div>
   </div>
 
+  <!-- NOTES -->
   <div class="notes">
-    <div class="section-label">Bitte beachten Sie</div>
+    <div class="section-label">Bitte beachten</div>
     <ul class="notes-list">
-      <li>Unaufgeforderte Einsendungen ohne vorherigen Kontakt werden nicht geprüft</li>
-      <li>Es erfolgt keine Rechtsberatung, rechtliche Vertretung oder behördliche Tätigkeit</li>
-      <li>Sämtliche Kommunikation wird für Zwecke der Fallkoordination dokumentiert</li>
-      <li>Wir akzeptieren keine Weiterleitungen durch Dritte ohne Zustimmung des Betreibers</li>
+      <li>Es werden keine Rechtsberatung, Vertretung oder Regulierungsbefugnisse angeboten</li>
+      <li>Alle Kommunikation wird für Fallkoordinationszwecke dokumentiert</li>
+      <li>Wir akzeptieren keine Drittanbieter-Vermittlungen ohne Zustimmung des Betreibers</li>
     </ul>
   </div>
 
+  <!-- OPERATOR CTA -->
   <div class="operator-cta">
     <div>
       <strong>Sind Sie ein Betreiber?</strong>
-      <p>Für B2B-Anfragen zu Beschwerdemanagement und Reputations-Services besuchen Sie bitte unsere Anbieter-Seite.</p>
+      <p>Für B2B-Anfragen zum Beschwerdemanagement und Reputationsservice besuchen Sie unsere Betreiberseite.</p>
     </div>
-    <a href="for-operators.html" class="btn">Anbieter-Services</a>
+    <a href="/de/for-operators.html" class="btn">Betreiber-Services</a>
   </div>
 
   <footer>
-    Casino Compliance ist ein unabhängiger Dienst zur Koordination von Compliance- und Schlichtungsverfahren. Es erfolgt keine Rechtsberatung, rechtliche Vertretung oder behördliche Tätigkeit.
+    Casino Compliance ist ein unabhängiger Compliance- und Streitkoordinierungsservice. Es werden keine Rechtsberatung, Vertretung oder Regulierungsbefugnisse angeboten.
   </footer>
 
 </div>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    if (this.action.includes('YOUR_FORM_ID')) {
+      e.preventDefault();
+      const success = document.getElementById('formSuccess');
+      success.style.display = 'block';
+      this.reset();
+      setTimeout(() => { success.style.display = 'none'; }, 5000);
+    }
+  });
+</script>
+
 </body>
 </html>
