@@ -5,232 +5,521 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Self-Exclusion – Casino Compliance</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-47Z20RJ8W4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-47Z20RJ8W4');
+</script>
+
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  :root {
+    --navy:    #0D1B2A;
+    --navy2:   #111D2B;
+    --navy3:   #162234;
+    --border:  #1E2E40;
+    --accent:  #C8A96E;
+    --accent2: #E8CFA0;
+    --text:    #E2E8F0;
+    --muted:   #6E8FA8;
   }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #0b0e13;
-    color: #e6e9ef;
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
     display: flex;
     min-height: 100vh;
+    line-height: 1.75;
   }
 
-  /* SIDEBAR */
+  /* ── SIDEBAR ── */
   .sidebar {
     width: 260px;
-    background: #0f131a;
-    border-right: 1px solid #1f2433;
-    padding: 32px 20px;
-  }
-  /* LOGO */
-  .logo {
-    margin-bottom: 24px;
-  }
-
-  .logo img {
-    max-width: 160px;
-    height: auto;
-    display: block;
-  }
-
-  .sidebar-title {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 32px;
-  }
-
-  .nav {
+    min-height: 100vh;
+    background: var(--navy2);
+    border-right: 1px solid var(--border);
+    padding: 36px 24px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-shrink: 0;
   }
 
-  .nav a,
-  .nav a:visited,
-  .nav span {
-    color: #cfd5e3;
-    text-decoration: none;
+  .sidebar-logo { margin-bottom: 10px; }
+  .sidebar-logo img { max-width: 148px; height: auto; display: block; }
+
+  .sidebar-brand {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
-    white-space: nowrap;
+    font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: 0.3px;
+    margin-bottom: 40px;
   }
 
-  .nav a:hover {
-    color: #ffffff;
+  .nav-section {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+  .nav-section:first-of-type { margin-top: 0; }
+
+  nav a, nav span {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+    margin-bottom: 2px;
   }
 
-  .nav .active {
-    color: #9bbcff;
-    font-weight: 500;
-    cursor: default;
+  nav a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+  nav .active { color: var(--accent); background: rgba(200,169,110,0.08); font-weight: 500; }
+
+  .nav-divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
   }
 
-  /* CONTENT */
+  .lang-switch { display: flex; gap: 8px; font-size: 12px; letter-spacing: 1px; }
+  .lang-switch a, .lang-switch span {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: color 0.2s;
+  }
+  .lang-switch .active { color: var(--accent); background: rgba(200,169,110,0.1); }
+  .lang-switch a:hover { color: var(--text); }
+
+  /* ── CONTENT ── */
   .content {
     flex: 1;
-    padding: 80px 90px;
-    max-width: 1200px;
+    padding: 72px 80px;
+    max-width: 900px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
   }
 
   h1 {
-    font-size: 44px;
-    font-weight: 500;
-    margin-bottom: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  h1 em { font-style: italic; color: var(--accent2); }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 580px;
+    margin-bottom: 16px;
+    line-height: 1.8;
   }
 
-  h2 {
-    font-size: 22px;
-    margin-top: 42px;
-    margin-bottom: 14px;
+  .lead {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 640px;
+    margin-bottom: 56px;
+    line-height: 1.8;
   }
 
-  p, li {
-    font-size: 15px;
-    color: #b8c0d8;
-    line-height: 1.7;
-    max-width: 760px;
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
   }
 
-  ul, ol {
-    margin-left: 22px;
-    margin-top: 10px;
+  /* PROCESS STEPS */
+  .process {
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
   }
 
-  footer {
-    margin-top: 80px;
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .process-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 28px;
+    margin-bottom: 4px;
+  }
+
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(200,169,110,0.1);
+    border: 1px solid rgba(200,169,110,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    width: 1px;
+    flex: 1;
+    min-height: 24px;
+    background: linear-gradient(to bottom, rgba(200,169,110,0.3), rgba(200,169,110,0.05));
+    margin: 6px 0;
+  }
+
+  .process-step:last-child .step-line { display: none; }
+
+  .step-body {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 22px 28px;
+    margin-bottom: 8px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .step-body:hover {
+    border-color: rgba(200,169,110,0.25);
+    background: var(--navy3);
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+
+  .step-desc {
     font-size: 13px;
-    color: #8b93aa;
-    max-width: 900px;
+    color: var(--muted);
+    line-height: 1.75;
   }
-.language-switch {
-  font-size: 14px;
-  margin-bottom: 24px;
-  text-align: right;
-}
 
-.language-switch a,
-.language-switch span {
-  color: #cfd5e3;
-  text-decoration: none;
-  margin-left: 8px;
-}
+  /* TOOL FEATURES */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 48px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.1s;
+  }
 
-.language-switch .active {
-  color: #9bbcff;
-  font-weight: 500;
-  cursor: default;
-}
+  .tool-item {
+    background: var(--navy2);
+    padding: 24px;
+    transition: background 0.25s;
+  }
 
-.language-switch a:hover {
-  color: #ffffff;
-}
+  .tool-item:hover { background: var(--navy3); }
 
-  /* =========================
-     MOBILE OPTIMIERUNG
-     ========================= */
-  @media (max-width: 900px) {
+  .tool-icon {
+    font-size: 18px;
+    margin-bottom: 10px;
+    display: block;
+  }
 
-    body {
-      flex-direction: column;
-    }
+  .tool-item h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
 
-    .sidebar {
-      width: 100%;
-      border-right: none;
-      border-bottom: 1px solid #1f2433;
-      padding: 20px;
-    }
+  .tool-item p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
 
-    .nav {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 12px 16px;
-    }
+  /* PURPOSE BLOCK */
+  .purpose-block {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px;
+    margin-bottom: 40px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.05s;
+  }
 
-    .nav a,
-    .nav span {
-      font-size: 14px;
-    }
+  .purpose-block p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 640px;
+  }
 
-    .content {
-      padding: 40px 24px;
-    }
+  /* CTA */
+  .cta-box {
+    background: linear-gradient(135deg, rgba(200,169,110,0.08), rgba(200,169,110,0.03));
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 6px;
+    padding: 32px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.15s;
+  }
 
-    h1 {
-      font-size: 32px;
-    }
+  .cta-box div strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--accent2);
+    margin-bottom: 6px;
+  }
+
+  .cta-box div p {
+    font-size: 14px;
+    color: var(--muted);
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--navy);
+    padding: 12px 26px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn:hover { background: var(--accent2); transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    margin-top: 60px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; min-height: unset; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
+    .sidebar-footer { margin-top: 24px; }
+    .content { padding: 40px 24px; }
+    .process-step { grid-template-columns: 44px 1fr; gap: 0 16px; }
+    .cta-box { flex-direction: column; align-items: flex-start; }
   }
 </style>
 </head>
-
 <body>
 
 <!-- SIDEBAR -->
 <div class="sidebar">
-  <!-- LOGO -->
-  <div class="logo">
+  <div class="sidebar-logo">
     <img src="/assets/logo.png" alt="Casino Compliance Logo">
   </div>
+  <div class="sidebar-brand">Casino Compliance</div>
 
-  <div class="sidebar-title">Casino Compliance</div>
-  <nav class="nav">
+  <div class="nav-section">Player Services</div>
+  <nav>
     <a href="index.html">Overview</a>
     <span class="active">Self-Exclusion</span>
-    <a href="refund-claims.html">Refund & Player Complaints</a>
+    <a href="refund-claims.html">Refund & Complaints</a>
     <a href="dispute-process.html">Dispute Process</a>
-    <a href="legal-notice.html">Legal Notice</a>
-    <a href="contact.html">Contact</a>
   </nav>
+
+  <div class="nav-divider"></div>
+
+  <div class="nav-section">Operators</div>
+  <nav>
+    <a href="for-operators.html">For Operators</a>
+  </nav>
+
+  <div class="nav-divider"></div>
+
+  <nav>
+    <a href="contact.html">Contact</a>
+    <a href="legal-notice.html">Legal Notice</a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="lang-switch">
+      <span class="active">EN</span>
+      <a href="/de/self-exclusion.html">DE</a>
+    </div>
+  </div>
 </div>
 
 <!-- CONTENT -->
 <div class="content">
 
-  <!-- LANGUAGE SWITCH -->
-  <div class="language-switch">
-    <span class="active">EN</span>
-    <a href="/de/self-exclusion.html">DE</a>
+  <div class="eyebrow">Player Services</div>
+  <h1>Self-Exclusion <em>Enforcement</em></h1>
+
+  <p class="subtitle">Structured coordination and documentation support for self-exclusion requests submitted to online gambling operators.</p>
+  <p class="lead">Self-exclusion is a mandatory responsible gambling measure requiring operators to prevent account access and financial transactions once a valid exclusion request has been submitted. We ensure that process is verifiable and enforceable.</p>
+
+  <!-- PURPOSE -->
+  <div class="section-label">Purpose</div>
+  <div class="purpose-block">
+    <p>The self-exclusion coordination process is designed to ensure that exclusion requests are transmitted in a verifiable manner — and that subsequent operator conduct can be assessed against applicable responsible gambling obligations. Where an operator fails to honour a documented exclusion, that conduct becomes the basis for a formal compliance claim.</p>
   </div>
 
-  <h1>Self-Exclusion Enforcement</h1>
+  <!-- PROCESS -->
+  <div class="section-label">Process Overview</div>
+  <div class="process">
 
-  <p>
-    Self-exclusion is a mandatory responsible gambling measure requiring operators
-    to prevent account access and financial transactions once a valid exclusion
-    request has been submitted.
-  </p>
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Notice Preparation</div>
+        <p class="step-desc">A standardised self-exclusion notice is prepared in a format that meets operator and regulatory requirements — clearly documenting the player's intent and the date of submission.</p>
+      </div>
+    </div>
 
-  <p>
-    Casino Compliance provides structured coordination and documentation support
-    for self-exclusion requests submitted to online gambling operators.
-  </p>
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Documented Transmission</div>
+        <p class="step-desc">The notice is transmitted to the operator's designated responsible gambling or compliance channel. All transmission records are retained as evidence of delivery.</p>
+      </div>
+    </div>
 
-  <h2>Purpose</h2>
-  <p>
-    The self-exclusion coordination process is designed to ensure that exclusion
-    requests are transmitted in a verifiable manner and that subsequent operator
-    conduct can be assessed against applicable responsible gambling obligations.
-  </p>
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Delivery Confirmation</div>
+        <p class="step-desc">Confirmation of receipt is preserved where available. In cases where operators fail to acknowledge, this forms part of the documented record.</p>
+      </div>
+    </div>
 
-  <h2>Process Overview</h2>
-  <ol>
-    <li>Preparation of a standardized self-exclusion notice.</li>
-    <li>Documented transmission to designated operator channels.</li>
-    <li>Preservation of delivery confirmations.</li>
-    <li>Monitoring of post-notice activity.</li>
-  </ol>
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Post-Notice Monitoring</div>
+        <p class="step-desc">Any account activity, deposits, or communications from the operator following the exclusion notice are documented and assessed for compliance. This forms the basis for any subsequent refund or dispute claim.</p>
+      </div>
+    </div>
 
-  <h2>Self-Exclusion Coordination Tool</h2>
-  <ul>
-    <li>Centralized preparation of requests</li>
-    <li>Consistent formatting</li>
-    <li>Documented delivery records</li>
-    <li>Evidence preservation</li>
-  </ul>
+  </div>
+
+  <!-- TOOL FEATURES -->
+  <div class="section-label">Coordination Features</div>
+  <div class="tool-grid">
+    <div class="tool-item">
+      <span class="tool-icon">📋</span>
+      <h3>Centralised Preparation</h3>
+      <p>Requests prepared in a consistent, compliant format for all operators.</p>
+    </div>
+    <div class="tool-item">
+      <span class="tool-icon">✉️</span>
+      <h3>Documented Delivery</h3>
+      <p>Full transmission records retained for every submission.</p>
+    </div>
+    <div class="tool-item">
+      <span class="tool-icon">🗂️</span>
+      <h3>Evidence Preservation</h3>
+      <p>All records stored and available for escalation or dispute purposes.</p>
+    </div>
+    <div class="tool-item">
+      <span class="tool-icon">🔍</span>
+      <h3>Post-Notice Review</h3>
+      <p>Ongoing monitoring of operator conduct following exclusion submission.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div>
+      <strong>Need to submit an exclusion?</strong>
+      <p>Contact us and we will coordinate the process on your behalf.</p>
+    </div>
+    <a href="contact.html" class="btn">Get in Touch</a>
+  </div>
 
   <footer>
     Casino Compliance is an independent compliance and dispute coordination service.
@@ -238,6 +527,5 @@
   </footer>
 
 </div>
-
 </body>
 </html>
