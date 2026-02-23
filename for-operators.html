@@ -1,124 +1,241 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Operators – Casino Compliance</title>
-<link href="" rel="stylesheet">
-<style>
-:root { --navy: #0D1B2A; --navy2: #111D2B; --navy3: #162234; --border: #1E2E40; --accent: #C8A96E; --accent2: #E8CFA0; --text: #E2E8F0; --muted: #6E8FA8; }
+<title>For Operators – Casino Compliance & Player Protection</title>
 
-{ box-sizing: border-box; margin: 0; padding: 0; }
-body { background: var(--navy); color: var(--text); font-family: 'Jost', sans-serif; font-weight: 300; display: flex; min-height: 100vh; line-height: 1.75; }
-.sidebar { width: 260px; min-height: 100vh; background: var(--navy2); border-right: 1px solid var(--border); padding: 36px 24px; display: flex; flex-direction: column; position: sticky; top: 0; height: 100vh; flex-shrink: 0; }
-.sidebar-logo img { max-width: 148px; height: auto; display: block; margin-bottom: 10px; }
-.sidebar-brand { font-family: 'Cormorant Garamond', serif; font-size: 15px; font-weight: 600; color: var(--accent2); letter-spacing: 0.3px; margin-bottom: 40px; }
-.nav-section { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); margin-bottom: 12px; margin-top: 28px; }
-nav a, nav span { display: block; padding: 8px 12px; border-radius: 4px; font-size: 14px; color: var(--muted); text-decoration: none; transition: 0.2s; margin-bottom: 2px; }
-nav a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
-nav .active { color: var(--accent); background: rgba(200,169,110,0.08); font-weight: 500; }
-.sidebar-footer { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border); }
-.content { flex: 1; padding: 72px 80px; max-width: 1100px; }
-.eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--accent); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-.eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--accent); }
-h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 5vw, 62px); font-weight: 600; line-height: 1.1; margin-bottom: 20px; }
-.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border-radius: 6px; overflow: hidden; margin-bottom: 64px; }
-.stat-item { background: var(--navy2); padding: 32px 20px; text-align: center; }
-.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 38px; color: var(--accent); display: block; }
-.section-label { font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; margin-top: 60px; }
-.section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
-.problem-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 64px; }
-.problem-item { background: var(--navy2); padding: 32px; border: 1px solid var(--border); border-radius: 6px; }
-.service-row { display: grid; grid-template-columns: 60px 1fr; gap: 32px; background: var(--navy2); border: 1px solid var(--border); padding: 36px; border-radius: 6px; margin-bottom: 12px; }
-.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 64px; }
-.price-card { background: var(--navy2); border: 1px solid var(--border); border-radius: 6px; padding: 48px 32px; text-align: center; }
-.btn { display: inline-block; background: var(--accent); color: var(--navy); padding: 14px 32px; font-size: 12px; font-weight: 500; text-transform: uppercase; text-decoration: none; border-radius: 2px; }
-@media (max-width: 900px) { body { flex-direction: column; } .sidebar { width: 100%; height: auto; position: relative; } .content { padding: 40px 24px; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #0D1B2A;
+  --navy2: #111D2B;
+  --navy3: #162234;
+  --border: #1E2E40;
+  --accent: #C8A96E;
+  --accent2: #E8CFA0;
+  --text: #E2E8F0;
+  --muted: #6E8FA8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--navy);
+  color: var(--text);
+  font-family: 'Jost', sans-serif;
+  display: flex;
+  min-height: 100vh;
+  line-height: 1.75;
+}
+
+/* SIDEBAR */
+.sidebar {
+  width: 260px;
+  background: var(--navy2);
+  border-right: 1px solid var(--border);
+  padding: 36px 24px;
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-logo img {
+  max-width: 148px;
+}
+
+.sidebar-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  color: var(--accent2);
+  margin-bottom: 40px;
+}
+
+.nav-section {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin: 24px 0 10px;
+}
+
+nav a, nav span {
+  display: block;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+nav a:hover { color: var(--text); }
+
+nav .active {
+  color: var(--accent);
+}
+
+/* CONTENT */
+.content {
+  flex: 1;
+  padding: 72px 80px;
+  max-width: 1000px;
+}
+
+/* TYPO */
+h1, h2 {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+h1 {
+  font-size: 56px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 80px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+}
+
+.box {
+  background: var(--navy2);
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+
+/* MOBILE */
+@media (max-width: 860px) {
+  body { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .content { padding: 40px 24px; }
+}
 </style>
 </head>
-  <body>
 
+<body>
+
+<!-- SIDEBAR -->
 <div class="sidebar">
-<div class="sidebar-logo"><img src="/assets/logo.png" alt="Logo"></div>
-<div class="sidebar-brand">Casino Compliance</div>
-<div class="nav-section">Player Services</div>
-<nav>
-<a href="index.html">Overview</a>
-<a href="self-exclusion.html">Self-Exclusion</a>
-<a href="refund-claims.html">Refund & Complaints</a>
-<a href="dispute-process.html">Dispute Process</a>
-</nav>
-<div class="nav-divider"></div>
-<div class="nav-section">Operators</div>
-<nav><span class="active">For Operators</span></nav>
-<div class="nav-divider"></div>
-<nav><a href="contact.html">Contact</a><a href="legal-notice.html">Legal Notice</a></nav>
-<div class="sidebar-footer">
-<div class="lang-switch">
-<span class="active" style="color:var(--accent); background:rgba(200,169,110,0.1); padding:4px 8px; border-radius:3px; font-weight:500;">EN</span>
-<a href="/de/for-operators.html" style="color:var(--muted); text-decoration:none; padding:4px 8px;">DE</a>
+  <div class="sidebar-logo">
+    <img src="/assets/logo.png">
+  </div>
+  <div class="sidebar-brand">Casino Compliance</div>
+
+  <div class="nav-section">Player Services</div>
+  <nav>
+    <a href="index.html">Overview</a>
+    <a href="self-exclusion.html">Self-Exclusion</a>
+    <a href="refund-claims.html">Refund & Complaints</a>
+    <a href="dispute-process.html">Dispute Process</a>
+  </nav>
+
+  <div class="nav-section">Operators</div>
+  <nav>
+    <span class="active">For Operators</span>
+  </nav>
+
+  <div class="nav-section">More</div>
+  <nav>
+    <a href="contact.html">Contact</a>
+    <a href="legal-notice.html">Legal Notice</a>
+  </nav>
 </div>
-</div>
-</div>
-    
+
+<!-- CONTENT -->
 <div class="content">
-<div class="eyebrow">B2B Reputation & Compliance</div>
-<h1>Turn complaints into <em>resolved cases.</em></h1>
-<p class="subtitle">We handle your player disputes, reputation monitoring, and complaint escalation — professionally, discreetly, and before they reach the regulator.</p>
 
-<div class="stats-grid">
-<div class="stat-item"><span class="stat-num">48h</span><span class="stat-label">Response SLA</span></div>
-<div class="stat-item"><span class="stat-num">B2B</span><span class="stat-label">Operator Focused</span></div>
-<div class="stat-item"><span class="stat-num">DE/EN</span><span class="stat-label">Bilingual</span></div>
-<div class="stat-item"><span class="stat-num">ADR</span><span class="stat-label">Expertise</span></div>
-</div>
-<div class="section-label">The Problem</div> <h2>Risks of unmanaged <span>complaints</span></h2> <div class="problem-grid"> <div class="problem-item"> <span class="problem-icon">📉</span> <div class="problem-title">Review Damage</div> <p class="problem-desc">Negative ratings on Trustpilot and AskGamblers compound quickly, deterring new players.</p> </div> <div class="problem-item"> <span class="problem-icon">⚖️</span> <div class="problem-title">Regulatory Focus</div> <p class="problem-desc">Patterns of unresolved complaints trigger audits by licensing bodies or regulatory fines.</p> </div> <div class="problem-item"> <span class="problem-icon">📢</span><div class="problem-title">Social Dynamics</div> <p class="problem-desc">Reddit threads or Telegram groups can escalate minor cases into viral PR crises rapidly.</p> </div> </div>
- <div class="section-label">Services</div>
-<h2>What we <span>deliver</span></h2>
-<div class="services-list">
-<div class="service-row">
-<div>
-<span style="font-family:'Cormorant Garamond', serif; font-size:22px; color:var(--text); font-weight:600; display:block; margin-bottom:8px;">01. Complaint Triage & Resolution</span>
-<p style="font-size:14px; color:var(--muted);">We receive and respond to incoming player complaints, working toward settlement before formal third-party escalation.</p>
-</div>
-</div>
-<div class="service-row">
-<div>
-<span style="font-family:'Cormorant Garamond', serif; font-size:22px; color:var(--text); font-weight:600; display:block; margin-bottom:8px;">02. Review Platform Management</span>
-<p style="font-size:14px; color:var(--muted);">Active response management across Trustpilot, AskGamblers, and Casino Guru to protect your brand reputation.</p>
-</div>
-</div>
-<div class="service-row">
-<div>
-<span style="font-family:'Cormorant Garamond', serif; font-size:22px; color:var(--text); font-weight:600; display:block; margin-bottom:8px;">03. ADR & Regulator Liaison</span>
-<p style="font-size:14px; color:var(--muted);">Professional preparation of case summaries and evidence for ADR bodies and licensing authorities (MGA/Curaçao).</p>
-</div>
-</div>
+  <div class="section">
+    <div class="eyebrow">For Operators</div>
+    <h1>Turn complaints into resolved cases.</h1>
+    <p>
+      We handle your player disputes, reputation monitoring, and complaint escalation — before they reach the regulator. Professional, discreet, and fast.
+    </p>
+  </div>
+
+  <div class="section grid grid-3">
+    <div class="box">
+      <h2>Review Damage</h2>
+      <p>Negative ratings on Trustpilot, AskGamblers, and Casino Guru compound over time.</p>
+    </div>
+    <div class="box">
+      <h2>Regulatory Escalation</h2>
+      <p>Unresolved disputes reach ADR bodies and licensing authorities.</p>
+    </div>
+    <div class="box">
+      <h2>Social Amplification</h2>
+      <p>Communities amplify unresolved cases rapidly.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Services</div>
+    <h2>What we deliver</h2>
+    <p>
+      A complete complaint and reputation management service, structured around the platforms and escalation paths that matter most.
+    </p>
+  </div>
+
+  <div class="section grid">
+    <div class="box">
+      <h2>Complaint Triage & Resolution</h2>
+      <p>We receive, categorise, and respond to incoming player complaints on your behalf.</p>
+    </div>
+
+    <div class="box">
+      <h2>Review Platform Management</h2>
+      <p>Ongoing monitoring and professional response management across major platforms.</p>
+    </div>
+
+    <div class="box">
+      <h2>ADR & Regulator Liaison</h2>
+      <p>We manage the entire correspondence process with ADR bodies.</p>
+    </div>
+
+    <div class="box">
+      <h2>Reputation Monitoring</h2>
+      <p>Continuous monitoring across forums, social platforms, and review sites.</p>
+    </div>
+
+    <div class="box">
+      <h2>Self-Exclusion Compliance</h2>
+      <p>Management and documentation of self-exclusion requests.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="eyebrow">Contact</div>
+    <h2>Ready to start?</h2>
+    <p>Book a consultation and we assess your complaint exposure.</p>
+  </div>
+
 </div>
 
-<div class="section-label">Pricing</div>
-<div class="pricing-grid">
-<div class="price-card">
-<span style="font-size:11px; text-transform:uppercase; color:var(--accent); letter-spacing:2px;">Starter</span>
-<div style="font-family:'Cormorant Garamond', serif; font-size:44px; color:var(--text); margin:12px 0;">€800</div>
-<p style="font-size:12px; color:var(--muted); margin-bottom:24px;">per month</p>
-<a href="contact.html" class="btn">Inquire</a>
-</div>
-<div class="price-card" style="border-color:var(--accent); background:var(--navy3);">
-<span style="font-size:11px; text-transform:uppercase; color:var(--accent2); letter-spacing:2px;">Professional</span>
-<div style="font-family:'Cormorant Garamond', serif; font-size:44px; color:var(--text); margin:12px 0;">€1,800</div>
-<p style="font-size:12px; color:var(--muted); margin-bottom:24px;">per month</p>
-<a href="contact.html" class="btn">Get Started</a>
-</div>
-</div>
-
-<div style="background:var(--navy2); border:1px solid var(--border); padding:60px; text-align:center; border-radius:6px; margin-top:40px;">
-<h2 style="margin-bottom:12px;">Ready to stop managing <span>complaints reactively?</span></h2>
-<p style="margin-bottom:32px; color:var(--muted); max-width:500px; margin-left:auto; margin-right:auto;">Book a consultation. We will assess your current situation and outline exactly how we can help.</p>
-<a href="contact.html" class="btn">Book a Consultation</a>
-</div>
-
-<footer style="margin-top:80px; padding-top:32px; border-top:1px solid var(--border); font-size:12px; color:var(--muted); opacity:0.7;">
-Casino Compliance is an independent B2B compliance coordination service. No legal advice provided. · <a href="legal-notice.html" style="color:inherit; text-decoration:none;">Legal Notice</a>
-</footer> 
+</body>
+</html>
