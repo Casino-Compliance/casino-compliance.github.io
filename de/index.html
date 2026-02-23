@@ -5,262 +5,482 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Casino Compliance & Spielerschutz</title>
 
-<link rel="alternate" hreflang="de" href="https://casino-compliance.com/de/index.html">
 <link rel="alternate" hreflang="en" href="https://casino-compliance.com/index.html">
+<link rel="alternate" hreflang="de" href="https://casino-compliance.com/de/index.html">
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  :root {
+    --navy:    #0D1B2A;
+    --navy2:   #111D2B;
+    --navy3:   #162234;
+    --border:  #1E2E40;
+    --accent:  #C8A96E;
+    --accent2: #E8CFA0;
+    --text:    #E2E8F0;
+    --muted:   #6E8FA8;
+    --link:    #9bbcff;
   }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    background: #0b0e13;
-    color: #e6e9ef;
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
     display: flex;
     min-height: 100vh;
+    line-height: 1.75;
   }
 
+  /* ── SIDEBAR ── */
   .sidebar {
     width: 260px;
-    background: #0f131a;
-    border-right: 1px solid #1f2433;
-    padding: 32px 20px;
+    min-height: 100vh;
+    background: var(--navy2);
+    border-right: 1px solid var(--border);
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-shrink: 0;
   }
 
-  /* LOGO */
-  .logo {
-    margin-bottom: 24px;
+  .sidebar-logo {
+    margin-bottom: 10px;
   }
 
-  .logo img {
-    max-width: 160px;
+  .sidebar-logo img {
+    max-width: 148px;
     height: auto;
     display: block;
   }
 
-  .sidebar-title {
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 32px;
-  }
-
-  .nav {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .nav a,
-  .nav span {
-    color: #cfd5e3;
-    text-decoration: none;
+  .sidebar-brand {
+    font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
-    white-space: nowrap;
+    font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: 0.3px;
+    margin-bottom: 40px;
   }
 
-  .nav a:hover {
-    color: #ffffff;
+  .nav-section {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    margin-top: 28px;
   }
 
-  .nav .active {
-    color: #9bbcff;
+  .nav-section:first-of-type { margin-top: 0; }
+
+  nav a, nav span {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+    margin-bottom: 2px;
+  }
+
+  nav a:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.04);
+  }
+
+  nav .active {
+    color: var(--accent);
+    background: rgba(200,169,110,0.08);
     font-weight: 500;
-    cursor: default;
   }
 
+  .nav-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 20px 0;
+  }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .lang-switch {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .lang-switch a, .lang-switch span {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: color 0.2s;
+  }
+
+  .lang-switch .active {
+    color: var(--accent);
+    background: rgba(200,169,110,0.1);
+  }
+
+  .lang-switch a:hover { color: var(--text); }
+
+  /* ── MAIN CONTENT ── */
   .content {
     flex: 1;
-    padding: 80px 90px;
-    max-width: 1200px;
+    padding: 72px 80px;
+    max-width: 960px;
   }
 
-  .language-switch {
-    font-size: 14px;
-    margin-bottom: 24px;
-    text-align: right;
+  /* HERO */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
   }
 
-  .language-switch a,
-  .language-switch span {
-    color: #cfd5e3;
-    text-decoration: none;
-    margin-left: 8px;
-  }
-
-  .language-switch .active {
-    color: #9bbcff;
-    font-weight: 500;
-    cursor: default;
-  }
-
-  .language-switch a:hover {
-    color: #ffffff;
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
   }
 
   h1 {
-    font-size: 44px;
-    font-weight: 500;
-    margin-bottom: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent2);
   }
 
   .subtitle {
-    font-size: 18px;
-    color: #b5bdd3;
-    line-height: 1.6;
-    max-width: 820px;
-    margin-bottom: 28px;
-  }
-
-  .visual img {
-    max-width: 520px;
-    border-radius: 10px;
-    opacity: 0.28;
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 600px;
     margin-bottom: 52px;
+    line-height: 1.8;
   }
 
-  .section-title {
-    font-size: 22px;
-    margin-bottom: 26px;
-  }
-
+  /* CARDS */
   .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 28px;
-    max-width: 1100px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 60px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.1s;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
   .card {
-    background: #121824;
-    border: 1px solid #1f2433;
-    border-radius: 12px;
-    padding: 26px;
+    background: var(--navy2);
+    padding: 32px 28px;
+    transition: background 0.25s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .card:hover { background: var(--navy3); }
+
+  .card-icon {
+    font-size: 22px;
+    margin-bottom: 14px;
+    display: block;
   }
 
   .card h3 {
-    font-size: 16px;
-    margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
   }
 
   .card p {
     font-size: 14px;
-    color: #b8c0d8;
-    line-height: 1.6;
+    color: var(--muted);
+    line-height: 1.7;
   }
 
-  footer {
-    margin-top: 80px;
+  .card-arrow {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--accent);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* OPERATOR BANNER */
+  .operator-banner {
+    background: linear-gradient(135deg, rgba(200,169,110,0.08), rgba(200,169,110,0.03));
+    border: 1px solid rgba(200,169,110,0.25);
+    border-radius: 6px;
+    padding: 36px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 60px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.2s;
+  }
+
+  .operator-banner-text h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--accent2);
+    margin-bottom: 8px;
+  }
+
+  .operator-banner-text p {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 420px;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--navy);
+    padding: 13px 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .btn:hover {
+    background: var(--accent2);
+    transform: translateY(-2px);
+  }
+
+  /* SECTION TITLE */
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  /* HOW IT WORKS */
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-bottom: 60px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.3s;
+  }
+
+  .how-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: rgba(200,169,110,0.2);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .how-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .how-desc {
     font-size: 13px;
-    color: #8b93aa;
+    color: var(--muted);
+    line-height: 1.7;
   }
 
-  @media (max-width: 900px) {
-    body {
-      flex-direction: column;
-    }
+  /* FOOTER */
+  footer {
+    margin-top: 40px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    opacity: 0.7;
+  }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    body { flex-direction: column; }
 
     .sidebar {
       width: 100%;
+      min-height: unset;
+      height: auto;
+      position: relative;
       border-right: none;
-      border-bottom: 1px solid #1f2433;
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
     }
 
-    .content {
-      padding: 40px 24px;
-    }
+    .sidebar-footer { margin-top: 24px; }
 
-    h1 {
-      font-size: 32px;
+    .content { padding: 40px 24px; }
+
+    .operator-banner {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 </style>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-47Z20RJ8W4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-47Z20RJ8W4');
-</script>
 </head>
-
 <body>
 
 <div class="sidebar">
-
-  <!-- LOGO -->
-  <div class="logo">
+  <div class="sidebar-logo">
     <img src="/assets/logo.png" alt="Casino Compliance Logo">
   </div>
+  <div class="sidebar-brand">Casino Compliance</div>
 
-  <div class="sidebar-title">Casino Compliance</div>
-
-  <nav class="nav">
+  <div class="nav-section">Spielerservice</div>
+  <nav>
     <span class="active">Übersicht</span>
-    <a href="self-exclusion.html">Selbstausschluss</a>
-    <a href="refund-claims.html">Rückerstattungen & Beschwerden</a>
-    <a href="dispute-process.html">Beschwerdeverfahren</a>
-    <a href="legal-notice.html">Rechtliche Hinweise</a>
-    <a href="contact.html">Kontakt</a>
+    <a href="self-exclusion.html">Selbstsperre</a>
+    <a href="refund-claims.html">Rückforderung & Beschwerden</a>
+    <a href="dispute-process.html">Schlichtungsverfahren</a>
   </nav>
+
+  <div class="nav-divider"></div>
+
+  <div class="nav-section">Anbieter</div>
+  <nav>
+    <a href="for-operators.html">Für Betreiber</a>
+  </nav>
+
+  <div class="nav-divider"></div>
+
+  <nav>
+    <a href="contact.html">Kontakt</a>
+    <a href="legal-notice.html">Impressum</a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="lang-switch">
+      <a href="/index.html">EN</a>
+      <span class="active">DE</span>
+    </div>
+  </div>
 </div>
 
 <div class="content">
 
-  <div class="language-switch">
-    <a href="https://casino-compliance.com/index.html">EN</a>
-    <span class="active">DE</span>
-  </div>
+  <div class="eyebrow">Unabhängiger Service</div>
 
-  <h1>Casino Compliance & Spielerschutz</h1>
+  <h1>Casino Compliance<br>& <em>Spielerschutz</em></h1>
 
-  <div class="subtitle">
-    Strukturierte Koordination von Selbstausschlüssen, Beschwerden und
-    Compliance-bezogenen Streitfällen zwischen Spielern und Online-Casinos.
-  </div>
-
-  <div class="visual">
-    <img src="https://casinoalpha.ie/wp-content/uploads/2022/08/Guide-to-casino-complaints-1024x576.jpg" alt="Roulette Detail">
-  </div>
-
-  <div class="section-title">Was wir tun</div>
+  <p class="subtitle">
+    Strukturierte Koordination der Selbstsperre-Durchsetzung und Beschwerdebearbeitung zwischen Spielern und Online-Glücksspielanbietern.
+  </p>
 
   <div class="cards">
-    <div class="card">
-      <h3>Selbstausschluss-Koordination</h3>
-      <p>
-        Strukturierte Erstellung, Übermittlung und Dokumentation von
-        Selbstausschluss-Mitteilungen einschließlich Nachweisführung.
-      </p>
-    </div>
+    <a class="card" href="self-exclusion.html">
+      <span class="card-icon">🔒</span>
+      <h3>Selbstsperre-Koordination</h3>
+      <p>Strukturierte Vorbereitung und Dokumentation von Sperranträgen über verschiedene Anbieter und Gerichtsbarkeiten hinweg.</p>
+      <span class="card-arrow">Mehr erfahren →</span>
+    </a>
+    <a class="card" href="refund-claims.html">
+      <span class="card-icon">⚖️</span>
+      <h3>Rückforderungen & Beschwerden</h3>
+      <p>Koordination von Streitfällen in Bezug auf Zahlungen, Kontoführung und Bonusbedingungen.</p>
+      <span class="card-arrow">Mehr erfahren →</span>
+    </a>
+    <a class="card" href="dispute-process.html">
+      <span class="card-icon">📋</span>
+      <h3>Beschwerde-Eskalation</h3>
+      <p>Eskalation über interne und externe Beschwerdemechanismen, einschließlich ADR-Stellen (Schlichtungsstellen).</p>
+      <span class="card-arrow">Mehr erfahren →</span>
+    </a>
+  </div>
 
-    <div class="card">
-      <h3>Rückerstattungen & Spielerbeschwerden</h3>
-      <p>
-        Koordination von Beschwerden zwischen Spielern und Betreibern
-        in Bezug auf Zahlungen, Kontoführung und Spielerschutzpflichten.
-      </p>
+  <div class="operator-banner">
+    <div class="operator-banner-text">
+      <h3>Sind Sie ein Betreiber?</h3>
+      <p>Wir unterstützen Casinos dabei, Beschwerden zu verwalten, Bewertungsplattformen zu überwachen und Streitfälle zu lösen, bevor sie eskalieren.</p>
     </div>
+    <a href="for-operators.html" class="btn">Betreiber-Services anzeigen</a>
+  </div>
 
-    <div class="card">
-      <h3>Streitfall-Eskalation</h3>
-      <p>
-        Strukturierte Eskalation über Betreiberkanäle und
-        externe Streitbeilegungsstellen, sofern anwendbar.
-      </p>
+  <div class="section-label">So funktioniert es</div>
+  <div class="how-grid">
+    <div class="how-item">
+      <div class="how-num">01</div>
+      <div class="how-title">Fall einreichen</div>
+      <div class="how-desc">Beschreiben Sie Ihre Situation über das Kontaktformular. Wir bewerten Ihren Fall innerhalb von 24 Stunden.</div>
+    </div>
+    <div class="how-item">
+      <div class="how-num">02</div>
+      <div class="how-title">Wir koordinieren</div>
+      <div class="how-desc">Wir bereiten die Dokumentation vor und kommunizieren in Ihrem Namen direkt mit dem Betreiber.</div>
+    </div>
+    <div class="how-item">
+      <div class="how-num">03</div>
+      <div class="how-title">Eskalation bei Bedarf</div>
+      <div class="how-desc">Sollte keine Lösung gefunden werden, eskalieren wir den Fall mit vollständiger Dokumentation an Schlichtungsstellen oder Behörden.</div>
     </div>
   </div>
 
   <footer>
-    Casino Compliance ist ein unabhängiger Dienst zur Koordination von
-    Compliance- und Beschwerdeprozessen. Keine Rechtsberatung.
+    Unabhängiger Compliance- und Beschwerdekoordinationsdienst. Keine Rechtsberatung. · <a href="legal-notice.html" style="color:inherit;">Impressum</a>
   </footer>
 
 </div>
-
 </body>
 </html>
