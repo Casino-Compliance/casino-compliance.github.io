@@ -9,143 +9,138 @@
 
 <style>
 :root {
-  --navy: #0D1B2A;
-  --navy2: #111D2B;
-  --navy3: #162234;
-  --border: #1E2E40;
-  --accent: #C8A96E;
-  --accent2: #E8CFA0;
-  --text: #E2E8F0;
-  --muted: #6E8FA8;
+  --navy:#0D1B2A;
+  --navy2:#111D2B;
+  --navy3:#162234;
+  --border:#1E2E40;
+  --accent:#C8A96E;
+  --accent2:#E8CFA0;
+  --text:#E2E8F0;
+  --muted:#6E8FA8;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*{box-sizing:border-box;margin:0;padding:0;}
 
-body {
-  background: var(--navy);
-  color: var(--text);
-  font-family: 'Jost', sans-serif;
-  display: flex;
-  min-height: 100vh;
-  line-height: 1.75;
+body{
+  display:flex;
+  background:var(--navy);
+  color:var(--text);
+  font-family:'Jost',sans-serif;
+  line-height:1.7;
 }
 
 /* SIDEBAR */
-.sidebar {
-  width: 260px;
-  background: var(--navy2);
-  border-right: 1px solid var(--border);
-  padding: 36px 24px;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 0;
-  height: 100vh;
+.sidebar{
+  width:260px;
+  background:var(--navy2);
+  border-right:1px solid var(--border);
+  padding:36px 24px;
+  position:sticky;
+  top:0;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
-.sidebar-logo img {
-  max-width: 148px;
+.sidebar img{max-width:140px;margin-bottom:10px;}
+
+.sidebar-brand{
+  font-family:'Cormorant Garamond',serif;
+  color:var(--accent2);
+  margin-bottom:40px;
 }
 
-.sidebar-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  color: var(--accent2);
-  margin-bottom: 40px;
+.nav-section{
+  font-size:10px;
+  letter-spacing:2px;
+  color:var(--muted);
+  margin:24px 0 10px;
 }
 
-.nav-section {
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--muted);
-  margin: 24px 0 10px;
+nav a, nav span{
+  display:block;
+  padding:8px 12px;
+  color:var(--muted);
+  text-decoration:none;
 }
 
-nav a, nav span {
-  display: block;
-  padding: 8px 12px;
-  font-size: 14px;
-  color: var(--muted);
-  text-decoration: none;
-}
-
-nav a:hover { color: var(--text); }
-
-nav .active {
-  color: var(--accent);
-}
+nav a:hover{color:var(--text);}
+nav .active{color:var(--accent);}
 
 /* CONTENT */
-.content {
-  flex: 1;
-  padding: 72px 80px;
-  max-width: 1000px;
+.content{
+  flex:1;
+  padding:70px 80px;
+  max-width:1000px;
 }
 
 /* TYPO */
-h1, h2 {
-  font-family: 'Cormorant Garamond', serif;
+h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:56px;
+  margin-bottom:20px;
 }
 
-h1 {
-  font-size: 56px;
-  margin-bottom: 20px;
+h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:40px;
+  margin-bottom:16px;
 }
 
-h2 {
-  font-size: 40px;
-  margin-bottom: 16px;
+.eyebrow{
+  color:var(--accent);
+  font-size:11px;
+  letter-spacing:3px;
+  margin-bottom:20px;
 }
 
-.eyebrow {
-  color: var(--accent);
-  font-size: 11px;
-  letter-spacing: 3px;
-  margin-bottom: 20px;
+/* SECTIONS */
+.section{margin-bottom:80px;}
+
+/* CARDS */
+.grid{
+  display:grid;
+  gap:2px;
+  background:var(--border);
+  border:1px solid var(--border);
 }
 
-.section {
-  margin-bottom: 80px;
+.grid-3{
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 
-/* GRID */
-.grid {
-  display: grid;
-  gap: 24px;
+.card{
+  background:var(--navy2);
+  padding:30px;
 }
 
-.grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-}
-
-.box {
-  background: var(--navy2);
-  padding: 28px;
-  border: 1px solid var(--border);
+/* SERVICE ROW */
+.service{
+  border:1px solid var(--border);
+  padding:30px;
+  margin-bottom:10px;
+  background:var(--navy2);
 }
 
 /* MOBILE */
-@media (max-width: 860px) {
-  body { flex-direction: column; }
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    border-right: none;
-    border-bottom: 1px solid var(--border);
+@media(max-width:860px){
+  body{flex-direction:column;}
+  .sidebar{
+    width:100%;
+    height:auto;
+    position:relative;
+    border-right:none;
+    border-bottom:1px solid var(--border);
   }
-  .content { padding: 40px 24px; }
+  .content{padding:40px 24px;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- SIDEBAR -->
 <div class="sidebar">
-  <div class="sidebar-logo">
-    <img src="/assets/logo.png">
-  </div>
+  <img src="/assets/logo.png">
   <div class="sidebar-brand">Casino Compliance</div>
 
   <div class="nav-section">Player Services</div>
@@ -168,72 +163,91 @@ h2 {
   </nav>
 </div>
 
-<!-- CONTENT -->
 <div class="content">
 
-  <div class="section">
-    <div class="eyebrow">For Operators</div>
-    <h1>Turn complaints into resolved cases.</h1>
-    <p>
-      We handle your player disputes, reputation monitoring, and complaint escalation — before they reach the regulator. Professional, discreet, and fast.
-    </p>
+<!-- HERO -->
+<div class="section">
+  <div class="eyebrow">For Operators</div>
+  <h1>Turn complaints into <em>resolved cases.</em></h1>
+  <p>
+    We handle your player disputes, reputation monitoring, and complaint escalation — before they reach the regulator. Professional, discreet, and fast.
+  </p>
+</div>
+
+<!-- STATS -->
+<div class="section grid grid-3">
+  <div class="card">48h<br>Average Response Time</div>
+  <div class="card">B2B<br>Operator-Focused Service</div>
+  <div class="card">DE/EN<br>Bilingual Communication</div>
+</div>
+
+<!-- PROBLEM -->
+<div class="section">
+  <div class="eyebrow">The Problem</div>
+  <h2>What happens when complaints go unmanaged</h2>
+</div>
+
+<div class="section grid grid-3">
+  <div class="card">Review Damage</div>
+  <div class="card">Regulatory Escalation</div>
+  <div class="card">Social Amplification</div>
+  <div class="card">Internal Bandwidth</div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+  <div class="eyebrow">Services</div>
+  <h2>What we deliver</h2>
+</div>
+
+<div class="section">
+  <div class="service">
+    Complaint Triage & Resolution – Full handling of incoming disputes.
   </div>
 
-  <div class="section grid grid-3">
-    <div class="box">
-      <h2>Review Damage</h2>
-      <p>Negative ratings on Trustpilot, AskGamblers, and Casino Guru compound over time.</p>
-    </div>
-    <div class="box">
-      <h2>Regulatory Escalation</h2>
-      <p>Unresolved disputes reach ADR bodies and licensing authorities.</p>
-    </div>
-    <div class="box">
-      <h2>Social Amplification</h2>
-      <p>Communities amplify unresolved cases rapidly.</p>
-    </div>
+  <div class="service">
+    Review Platform Management – Trustpilot, Casino Guru etc.
   </div>
 
-  <div class="section">
-    <div class="eyebrow">Services</div>
-    <h2>What we deliver</h2>
-    <p>
-      A complete complaint and reputation management service, structured around the platforms and escalation paths that matter most.
-    </p>
+  <div class="service">
+    ADR & Regulator Liaison – Full communication handling.
   </div>
 
-  <div class="section grid">
-    <div class="box">
-      <h2>Complaint Triage & Resolution</h2>
-      <p>We receive, categorise, and respond to incoming player complaints on your behalf.</p>
-    </div>
-
-    <div class="box">
-      <h2>Review Platform Management</h2>
-      <p>Ongoing monitoring and professional response management across major platforms.</p>
-    </div>
-
-    <div class="box">
-      <h2>ADR & Regulator Liaison</h2>
-      <p>We manage the entire correspondence process with ADR bodies.</p>
-    </div>
-
-    <div class="box">
-      <h2>Reputation Monitoring</h2>
-      <p>Continuous monitoring across forums, social platforms, and review sites.</p>
-    </div>
-
-    <div class="box">
-      <h2>Self-Exclusion Compliance</h2>
-      <p>Management and documentation of self-exclusion requests.</p>
-    </div>
+  <div class="service">
+    Reputation Monitoring – Social + Forums.
   </div>
 
-  <div class="section">
-    <div class="eyebrow">Contact</div>
-    <h2>Ready to start?</h2>
-    <p>Book a consultation and we assess your complaint exposure.</p>
+  <div class="service">
+    Self-Exclusion Compliance – Documentation & tracking.
   </div>
+</div>
+
+<!-- WHY -->
+<div class="section">
+  <div class="eyebrow">Why Us</div>
+  <h2>The advantage of both sides</h2>
+  <p>
+    We have represented players in disputes against operators — this is your advantage.
+  </p>
+</div>
+
+<!-- PRICING -->
+<div class="section">
+  <div class="eyebrow">Pricing</div>
+  <h2>Transparent, retainer-based</h2>
+</div>
+
+<div class="section grid grid-3">
+  <div class="card">€800 / month</div>
+  <div class="card">€1,800 / month</div>
+  <div class="card">Custom</div>
+</div>
+
+<!-- CTA -->
+<div class="section">
+  <div class="eyebrow">Get in Touch</div>
+  <h2>Ready to stop managing complaints reactively?</h2>
+</div>
 
 </div>
 
