@@ -174,7 +174,7 @@
 
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(44px, 6vw, 78px);
+    font-size: clamp(36px, 4vw, 56px);
     font-weight: 600;
     line-height: 1.05;
     margin-bottom: 28px;
@@ -187,7 +187,7 @@
   }
 
   .hero-sub {
-    font-size: 17px;
+    font-size: 15px;
     color: var(--muted);
     max-width: 520px;
     margin-bottom: 48px;
@@ -277,7 +277,7 @@
 
   h2 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(32px, 4vw, 52px);
+    font-size: clamp(28px, 3vw, 44px);
     font-weight: 600;
     color: var(--light);
     line-height: 1.15;
@@ -672,14 +672,27 @@
     margin: 0 48px;
   }
 
-  @media (max-width: 768px) {
-    .hero { padding: 100px 24px 60px; }
-    section { padding: 60px 24px; }
-    .stats-bar { grid-template-columns: repeat(2,1fr); padding: 32px 24px; }
+  @media (max-width: 860px) {
+    body { flex-direction: column; }
+    .sidebar {
+      width: 100%;
+      min-height: unset;
+      height: auto;
+      position: relative;
+      border-right: none;
+      border-bottom: 1px solid #1E2E40;
+      padding: 20px 24px;
+    }
+    .sidebar-footer { margin-top: 20px; }
+    .main-content { width: 100%; }
+    .hero { padding: 40px 24px 40px; }
+    section { padding: 48px 24px; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); padding: 28px 24px; }
     .service-row { grid-template-columns: 1fr; gap: 16px; }
     .why-grid { grid-template-columns: 1fr; }
     .pricing-grid { grid-template-columns: 1fr; }
-    .page-footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 24px; }
+    .problem-grid { grid-template-columns: 1fr; }
+    .divider { margin: 0 24px; }
   }
 </style>
 </head>
