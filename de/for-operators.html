@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Für Betreiber – Casino Compliance & Spielerschutz</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --navy2: #142233;
+    --navy3: #1A2D42;
+    --steel: #2C4A6E;
+    --accent: #C8A96E;
+    --accent2: #E8CFA0;
+    --text: #E8EDF2;
+    --muted: #7A9BB8;
+    --light: #F0F4F8;
+    --border: rgba(200,169,110,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(13,27,42,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent2);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(44,74,110,0.35) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(200,169,110,0.08) 0%, transparent 60%);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  }
+
+  .hero-content {
+    max-width: 700px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px, 6vw, 78px);
+    font-weight: 600;
+    line-height: 1.05;
+    margin-bottom: 28px;
+    color: var(--light);
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    color: var(--muted);
+    max-width: 520px;
+    margin-bottom: 48px;
+    line-height: 1.8;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--navy);
+    padding: 16px 36px;
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent2);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 15px 32px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: border-color 0.2s, color 0.2s;
+    margin-left: 16px;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--navy2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 600;
+    color: var(--light);
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  h2 span { color: var(--accent2); font-style: italic; }
+
+  .section-intro {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 560px;
+    line-height: 1.8;
+  }
+
+  /* PROBLEM SECTION */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .problem-item {
+    background: var(--navy2);
+    padding: 36px;
+    transition: background 0.3s;
+  }
+
+  .problem-item:hover { background: var(--navy3); }
+
+  .problem-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .problem-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--light);
+    margin-bottom: 12px;
+  }
+
+  .problem-desc {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* SERVICES */
+  .services-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .service-row {
+    display: grid;
+    grid-template-columns: 280px 1fr auto;
+    align-items: start;
+    gap: 40px;
+    background: var(--navy2);
+    border: 1px solid transparent;
+    padding: 36px 40px;
+    transition: border-color 0.3s, background 0.3s;
+    cursor: default;
+  }
+
+  .service-row:hover {
+    border-color: var(--border);
+    background: var(--navy3);
+  }
+
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--light);
+    line-height: 1.2;
+  }
+
+  .service-desc {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+    padding-top: 4px;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: 4px;
+    min-width: 140px;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 2px;
+    text-align: center;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-platform { background: rgba(200,169,110,0.12); color: var(--accent); }
+  .tag-speed { background: rgba(122,155,184,0.12); color: var(--muted); }
+
+  /* WHY US */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .why-text h2 { margin-bottom: 24px; }
+
+  .why-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .why-points li {
+    display: flex;
+    gap: 16px;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .why-points li::before {
+    content: '—';
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .why-points strong { color: var(--light); font-weight: 500; }
+
+  .why-visual {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 48px 40px;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 32px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .process-step:last-child { margin-bottom: 0; }
+
+  .step-line {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .step-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(200,169,110,0.4);
+  }
+
+  .step-connector {
+    width: 1px;
+    flex: 1;
+    background: linear-gradient(to bottom, var(--accent), transparent);
+    margin: 4px 0;
+    min-height: 24px;
+  }
+
+  .step-title { font-size: 14px; font-weight: 500; color: var(--light); margin-bottom: 4px; }
+  .step-desc { font-size: 13px; color: var(--muted); }
+
+  /* PLATFORMS */
+  .platforms {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 48px;
+  }
+
+  .platforms-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+  }
+
+  .platform-chip {
+    background: var(--navy3);
+    border: 1px solid rgba(200,169,110,0.12);
+    border-radius: 3px;
+    padding: 16px 20px;
+    text-align: center;
+    transition: border-color 0.2s;
+  }
+
+  .platform-chip:hover { border-color: rgba(200,169,110,0.35); }
+
+  .platform-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--light);
+    margin-bottom: 4px;
+  }
+
+  .platform-type {
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* PRICING */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .pricing-card {
+    background: var(--navy2);
+    padding: 44px 36px;
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .pricing-card:hover { background: var(--navy3); }
+
+  .pricing-card.featured {
+    background: var(--navy3);
+    border-left: 2px solid var(--accent);
+  }
+
+  .pricing-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .pricing-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--light);
+    margin-bottom: 8px;
+  }
+
+  .pricing-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .pricing-period {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .pricing-features li {
+    font-size: 13px;
+    color: var(--muted);
+    display: flex;
+    gap: 10px;
+    line-height: 1.5;
+  }
+
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--accent);
+    font-size: 12px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--navy2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 48px;
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    max-width: 600px;
+    margin: 0 auto 20px;
+  }
+
+  .cta-section p {
+    color: var(--muted);
+    font-size: 16px;
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+
+  /* FOOTER NAV */
+  .page-footer {
+    padding: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--accent2);
+    text-decoration: none;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--muted);
+    opacity: 0.5;
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 0 48px;
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    section { padding: 60px 24px; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); padding: 32px 24px; }
+    .service-row { grid-template-columns: 1fr; gap: 16px; }
+    .why-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .page-footer { flex-direction: column; gap: 24px; text-align: center; padding: 40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Casino Compliance</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Übersicht</a></li>
+    <li><a href="self-exclusion.html">Selbstsperre</a></li>
+    <li><a href="refund-claims.html">Spielerbeschwerden</a></li>
+    <li><a href="for-operators.html" class="active">Für Betreiber</a></li>
+    <li><a href="contact.html">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Für Betreiber</div>
+    <h1>Verwandeln Sie Beschwerden in<br><em>gelöste Fälle.</em></h1>
+    <p class="hero-sub">
+      Wir übernehmen Ihr Beschwerdemanagement, Reputations-Monitoring und die Eskalations-Korrespondenz – bevor diese die Aufsichtsbehörde erreichen. Professionell, diskret und schnell.
+    </p>
+    <a href="contact.html" class="btn-primary">Beratung anfordern</a>
+    <a href="#services" class="btn-ghost">Leistungen ansehen</a>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-num">48h</span>
+    <span class="stat-label">Durchschnittliche Antwortzeit</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">B2B</span>
+    <span class="stat-label">Betreiber-fokussierter Service</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">DE/EN</span>
+    <span class="stat-label">Zweisprachige Kommunikation</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num">ADR</span>
+    <span class="stat-label">Erfahrung in Schlichtungsverfahren</span>
+  </div>
+</div>
+
+<section>
+  <div class="section-header">
+    <div class="eyebrow">Das Problem</div>
+    <h2>Was passiert, wenn<br>Beschwerden <span>unbearbeitet</span> bleiben</h2>
+    <p class="section-intro">Eine ungelöste Beschwerde bleibt selten isoliert. Sie eskaliert – über Plattformen hinweg, in Schlichtungsstellen und soziale Medien – zu Kosten, die den ursprünglichen Streitwert weit übersteigen.</p>
+  </div>
+
+  <div class="problem-grid">
+    <div class="problem-item">
+      <span class="problem-icon">📉</span>
+      <div class="problem-title">Reputationsschaden</div>
+      <p class="problem-desc">Negative Bewertungen auf Trustpilot, AskGamblers und Casino Guru summieren sich. Eine einzige unbeantwortete Beschwerde signalisiert potenziellen Spielern mangelnde Professionalität.</p>
+    </div>
+    <div class="problem-item">
+      <span class="problem-icon">⚖️</span>
+      <div class="problem-title">Behördliche Eskalation</div>
+      <p class="problem-desc">Ungelöste Fälle erreichen Schlichtungsstellen (ADR) und Lizenzbehörden. Behördliche Feststellungen sind öffentlich – und ein Muster an Beschwerden kann Lizenzprüfungen auslösen.</p>
+    </div>
+    <div class="problem-item">
+      <span class="problem-icon">📢</span>
+      <div class="problem-title">Soziale Dynamik</div>
+      <p class="problem-desc">Reddit-, Twitter- und Telegram-Communities verbreiten ungelöste Fälle rasant. Ein viraler Thread kann zehntausende Spieler erreichen, bevor Sie überhaupt davon erfahren.</p>
+    </div>
+    <div class="problem-item">
+      <span class="problem-icon">⏱️</span>
+      <div class="problem-title">Interne Kapazitäten</div>
+      <p class="problem-desc">Beschwerdemanagement bindet Ihr Support-Team in langwierige, oft emotionale Diskussionen. Ein spezialisiertes Handling befreit Ihr Team für das Tagesgeschäft und die Spielerbindung.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="services">
+  <div class="section-header">
+    <div class="eyebrow">Leistungen</div>
+    <h2>Was wir <span>liefern</span></h2>
+    <p class="section-intro">Ein komplettes Beschwerde- und Reputationsmanagement, strukturiert um die Plattformen und Eskalationspfade, die im Online-Glücksspiel entscheidend sind.</p>
+  </div>
+
+  <div class="services-list">
+    <div class="service-row">
+      <div>
+        <div class="service-num">01</div>
+        <div class="service-name">Triage & Falllösung</div>
+      </div>
+      <div class="service-desc">
+        Wir empfangen, kategorisieren und beantworten eingehende Spielerbeschwerden in Ihrem Namen. Jeder Fall wird auf Berechtigung, Eskalationsrisiko und den geeigneten Lösungsweg geprüft. Wir kommunizieren direkt mit dem Spieler, dokumentieren jeden Schritt und arbeiten auf eine Einigung vor der formellen Eskalation hin. Sie erhalten einen Bericht zu jedem gelösten Fall.
+      </div>
+      <div class="service-tags">
+        <span class="tag tag-platform">E-Mail & Ticket</span>
+        <span class="tag tag-platform">Live Chat</span>
+        <span class="tag tag-speed">48h SLA</span>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-num">02</div>
+        <div class="service-name">Plattform-Management</div>
+      </div>
+      <div class="service-desc">
+        Kontinuierliche Überwachung und professionelles Antwort-Management auf Trustpilot, AskGamblers, Casino Guru und Google Reviews. Wir verfassen Antworten, die Ihre Marke schützen, gegenüber Regulierungsbehörden Reaktionsbereitschaft demonstrieren und im Idealfall negative Rezensenten in gelöste Fälle verwandeln. Neue negative Bewertungen werden innerhalb von 24h gemeldet.
+      </div>
+      <div class="service-tags">
+        <span class="tag tag-platform">Trustpilot</span>
+        <span class="tag tag-platform">AskGamblers</span>
+        <span class="tag tag-platform">Casino Guru</span>
+        <span class="tag tag-speed">Tägliches Monitoring</span>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-num">03</div>
+        <div class="service-name">Korrespondenz mit Behörden & ADR</div>
+      </div>
+      <div class="service-desc">
+        Sollten Beschwerden an Schlichtungsstellen oder Lizenzbehörden eskaliert werden, verwalten wir den gesamten Korrespondenzprozess. Wir erstellen strukturierte Fallzusammenfassungen, stellen Beweisunterlagen zusammen und kommunizieren in Ihrem Namen – professionell, präzise und fristgerecht.
+      </div>
+      <div class="service-tags">
+        <span class="tag tag-platform">Schlichtungsstellen</span>
+        <span class="tag tag-platform">MGA / Curaçao</span>
+        <span class="tag tag-speed">Dokumentiert</span>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-num">04</div>
+        <div class="service-name">Reputations-Monitoring</div>
+      </div>
+      <div class="service-desc">
+        Überwachung Ihrer Marke in Foren, sozialen Netzwerken und Affiliate-Communities. Reddit, Twitter/X, Telegram-Gruppen und Fachforen werden auf Erwähnungen und Beschwerde-Threads geprüft. Wöchentliche Berichte mit Sentiment-Übersicht und Handlungsempfehlungen inklusive.
+      </div>
+      <div class="service-tags">
+        <span class="tag tag-platform">Reddit</span>
+        <span class="tag tag-platform">Telegram</span>
+        <span class="tag tag-platform">Twitter/X</span>
+        <span class="tag tag-speed">Wochenbericht</span>
+      </div>
+    </div>
+
+    <div class="service-row">
+      <div>
+        <div class="service-num">05</div>
+        <div class="service-name">Selbstsperre-Compliance</div>
+      </div>
+      <div class="service-desc">
+        Verwaltung und Dokumentation von Selbstsperre-Anfragen zur Sicherstellung der vollen Übereinstimmung mit Lizenzvorgaben. Wir verfolgen eingehende Sperrmitteilungen, verifizieren die Bearbeitung und führen strukturierte Aufzeichnungen – um Ihr regulatorisches Risiko zu minimieren.
+      </div>
+      <div class="service-tags">
+        <span class="tag tag-platform">Dokumentation</span>
+        <span class="tag tag-speed">Compliance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="why-grid">
+    <div class="why-text">
+      <div class="eyebrow">Warum wir</div>
+      <h2>Der Vorteil <span>beider Seiten</span></h2>
+      <p class="section-intro" style="margin-bottom:36px;">Wir haben Spieler in Streitfällen gegen Betreiber vertreten. Diese Erfahrung ist Ihr Vorteil – wir wissen genau, wie Beschwerden formuliert werden, was sie eskalieren lässt und wie man sie löst, bevor sie teuer werden.</p>
+      <ul class="why-points">
+        <li><div><strong>Erfahrung auf Spielerseite.</strong> Wir kennen die Argumente, Plattformen und Eskalationstaktiken, da wir diese selbst analysiert haben.</div></li>
+        <li><div><strong>Keine Rechtsberatung.</strong> Wir agieren als Compliance-Koordinationsdienst, nicht als Kanzlei. Schlank, schnell und kosteneffizient.</div></li>
+        <li><div><strong>Zweisprachig.</strong> Deutsch und Englisch – essenziell für den DACH-Markt und internationale Lizenzen.</div></li>
+        <li><div><strong>Diskret und dokumentiert.</strong> Jeder Fall wird professionell gehandhabt, mit voller Dokumentation auf Abruf.</div></li>
+        <li><div><strong>Retainer-basiert.</strong> Planbare monatliche Kosten ohne Überraschungen bei der Abrechnung einzelner Fälle.</div></li>
+      </ul>
+    </div>
+
+    <div class="why-visual">
+      <div class="eyebrow" style="margin-bottom:32px;">Ablauf</div>
+      <div class="process-step">
+        <div class="step-line">
+          <div class="step-dot"></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Onboarding-Call</div>
+          <div class="step-desc">Wir lernen Ihre Struktur, Lizenzen und aktuelle Beschwerdelage kennen. Setup innerhalb von 48h.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-line">
+          <div class="step-dot"></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Monitoring geht live</div>
+          <div class="step-desc">Überwachung der Plattformen und Foren ab Tag 1. Sie erhalten Zugriff auf ein gemeinsames Dashboard.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-line">
+          <div class="step-dot"></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Fallbearbeitung</div>
+          <div class="step-desc">Eingehende Beschwerden werden gesichtet und beantwortet. Kritische Fälle werden nach Freigabe bearbeitet.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-line">
+          <div class="step-dot"></div>
+        </div>
+        <div class="step-content">
+          <div class="step-title">Monatliches Reporting</div>
+          <div class="step-desc">Fallzusammenfassungen, Sentiment-Analysen und Empfehlungen am Ende jedes Monats.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section style="padding-top:60px; padding-bottom:60px;">
+  <div class="platforms">
+    <div class="platforms-title">Abgedeckte Plattformen</div>
+    <div class="platform-grid">
+      <div class="platform-chip">
+        <div class="platform-name">Trustpilot</div>
+        <div class="platform-type">Bewertungsportal</div>
+      </div>
+      <div class="platform-chip">
+        <div class="platform-name">AskGamblers</div>
+        <div class="platform-type">Beschwerdeportal</div>
+      </div>
+      <div class="platform-chip">
+        <div class="platform-name">Casino Guru</div>
+        <div class="platform-type">Schlichtungsportal</div>
+      </div>
+      <div class="platform-chip">
+        <div class="platform-name">Google Reviews</div>
+        <div class="platform-type">Bewertungsportal</div>
+      </div>
+      <div class="platform-chip">
+        <div class="platform-name">Reddit</div>
+        <div class="platform-type">Community-Forum</div>
+      </div>
+      <div class="platform-chip">
+        <div class="platform-name">Twitter / X</div>
+        <div class="platform-type">Soziale Medien</div>
+      </div>
+      <div class="platform-chip">
+        <div class="platform-name">Telegram</div>
+        <div class="platform-type">Community-Gruppen</div>
+      </div>
+      <div class="platform-chip">
+        <div class="platform-name">MGA / Curaçao</div>
+        <div class="platform-type">Regulatorische ADR</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section id="pricing">
+  <div class="section-header">
+    <div class="eyebrow">Preise</div>
+    <h2>Transparent &<br><span>Retainer-basiert</span></h2>
+    <p class="section-intro">Monatliche Pauschalen ohne versteckte Gebühren. Alle Pakete enthalten Onboarding, Monitoring-Setup und Reporting.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="pricing-card">
+      <div class="pricing-label">Starter</div>
+      <div class="pricing-name">Essential</div>
+      <div class="pricing-price">€800</div>
+      <div class="pricing-period">pro Monat</div>
+      <ul class="pricing-features">
+        <li>Monitoring von 3 Plattformen</li>
+        <li>Bis zu 15 Fall-Antworten / Monat</li>
+        <li>Monatlicher Kurzbericht</li>
+        <li>E-Mail & Ticket Triage</li>
+        <li>48-Stunden Antwort-SLA</li>
+      </ul>
+      <a href="contact.html" class="btn-ghost" style="display:block; text-align:center; margin-left:0;">Jetzt starten</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="pricing-label">Beliebtestes Paket</div>
+      <div class="pricing-name">Professional</div>
+      <div class="pricing-price">€1.800</div>
+      <div class="pricing-period">pro Monat</div>
+      <ul class="pricing-features">
+        <li>Full Platform Monitoring (alle Kanäle)</li>
+        <li>Bis zu 40 Fall-Antworten / Monat</li>
+        <li>ADR & Behörden-Korrespondenz</li>
+        <li>Social Media Monitoring (Reddit/Telegram)</li>
+        <li>Wochenberichte + Monats-Review</li>
+        <li>24-Stunden Antwort-SLA</li>
+        <li>Selbstsperre Compliance Tracking</li>
+      </ul>
+      <a href="contact.html" class="btn-primary" style="display:block; text-align:center;">Jetzt starten</a>
+    </div>
+
+    <div class="pricing-card">
+      <div class="pricing-label">Enterprise</div>
+      <div class="pricing-name">Individuell</div>
+      <div class="pricing-price">Auf Anfrage</div>
+      <div class="pricing-period">nach Volumen</div>
+      <ul class="pricing-features">
+        <li>Unbegrenzte Fallbearbeitung</li>
+        <li>Dediziertes Account-Management</li>
+        <li>Abdeckung mehrerer Marken</li>
+        <li>Direkte behördliche Schnittstelle</li>
+        <li>Eigene Dashboards & Reportings</li>
+        <li>Priorisierter Same-Day-SLA</li>
+      </ul>
+      <a href="contact.html" class="btn-ghost" style="display:block; text-align:center; margin-left:0;">Kontakt aufnehmen</a>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <div class="eyebrow" style="justify-content:center; margin-bottom:20px;">Kontakt</div>
+  <h2>Schluss mit reaktivem<br><span>Beschwerdemanagement.</span></h2>
+  <p>Buchen Sie ein 30-minütiges Beratungsgespräch. Wir analysieren Ihre aktuelle Situation und zeigen Ihnen genau, wie wir helfen können.</p>
+  <a href="contact.html" class="btn-primary">Beratung buchen</a>
+</div>
+
+<footer>
+  <div class="page-footer">
+    <a href="index.html" class="footer-logo">Casino Compliance</a>
+    <ul class="footer-links">
+      <li><a href="index.html">Übersicht</a></li>
+      <li><a href="for-operators.html">Für Betreiber</a></li>
+      <li><a href="refund-claims.html">Spielerbeschwerden</a></li>
+      <li><a href="contact.html">Kontakt</a></li>
+      <li><a href="legal-notice.html">Impressum</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Casino Compliance</span>
+  </div>
+</footer>
+
+</body>
+</html>
