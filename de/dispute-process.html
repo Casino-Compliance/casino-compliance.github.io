@@ -5,74 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Beschwerdeverfahren – Casino Compliance</title>
 
-<link rel="alternate" hreflang="de" href="https://casino-compliance.com/de/dispute-process.html">
-<link rel="alternate" hreflang="en" href="https://casino-compliance.com/dispute-process.html">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
-<style>
-  * { box-sizing:border-box; margin:0; padding:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
-  body { background:#0b0e13; color:#e6e9ef; display:flex; min-height:100vh; }
-
-  .sidebar { width:260px; background:#0f131a; border-right:1px solid #1f2433; padding:32px 20px; }
-   /* LOGO */
-  .logo {
-    margin-bottom: 24px;
-  }
-
-  .logo img {
-    max-width: 160px;
-    height: auto;
-    display: block;
-  }
-  .sidebar-title { font-weight:600; letter-spacing:.5px; margin-bottom:32px; }
-
-  .nav { display:flex; flex-direction:column; gap:14px; }
-  .nav a, .nav span { color:#cfd5e3; text-decoration:none; font-size:15px; white-space:nowrap; }
-  .nav a:hover { color:#fff; }
-  .nav .active { color:#9bbcff; font-weight:500; cursor:default; }
-
-  .content { flex:1; padding:80px 90px; max-width:1200px; }
-
-  h1 { font-size:44px; font-weight:500; margin-bottom:18px; }
-  h2 { font-size:22px; margin-top:48px; margin-bottom:14px; }
-
-  p, li { font-size:15px; color:#b8c0d8; line-height:1.7; max-width:760px; }
-  ol, ul { margin-left:22px; margin-top:10px; }
-
-  footer { margin-top:80px; font-size:13px; color:#8b93aa; max-width:900px; }
-
-  @media (max-width:900px){
-    body { flex-direction:column; }
-    .sidebar { width:100%; border-right:none; border-bottom:1px solid #1f2433; padding:20px; }
-    .nav { flex-direction:row; flex-wrap:wrap; gap:12px 16px; }
-    .nav a, .nav span { font-size:14px; }
-    .content { padding:40px 24px; }
-    h1 { font-size:32px; }
-  }
- .language-switch {
-  font-size: 14px;
-  margin-bottom: 24px;
-  text-align: right;
-}
-
-.language-switch a,
-.language-switch span {
-  color: #cfd5e3;
-  text-decoration: none;
-  margin-left: 8px;
-}
-
-.language-switch .active {
-  color: #9bbcff;
-  font-weight: 500;
-  cursor: default;
-}
-
-.language-switch a:hover {
-  color: #ffffff;
-}
-
-</style>
-  <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-47Z20RJ8W4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -80,71 +14,464 @@
   gtag('js', new Date());
   gtag('config', 'G-47Z20RJ8W4');
 </script>
-</head>
 
+<style>
+  :root {
+    --navy:    #0D1B2A;
+    --navy2:   #111D2B;
+    --navy3:   #162234;
+    --border:  #1E2E40;
+    --accent:  #C8A96E;
+    --accent2: #E8CFA0;
+    --text:    #E2E8F0;
+    --muted:   #6E8FA8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    display: flex;
+    min-height: 100vh;
+    line-height: 1.75;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    width: 260px;
+    min-height: 100vh;
+    background: var(--navy2);
+    border-right: 1px solid var(--border);
+    padding: 36px 24px;
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    flex-shrink: 0;
+  }
+
+  .sidebar-logo { margin-bottom: 10px; }
+  .sidebar-logo img { max-width: 148px; height: auto; display: block; }
+
+  .sidebar-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: 0.3px;
+    margin-bottom: 40px;
+  }
+
+  .nav-section {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 12px;
+    margin-top: 28px;
+  }
+  .nav-section:first-of-type { margin-top: 0; }
+
+  nav a, nav span {
+    display: block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s, background 0.2s;
+    margin-bottom: 2px;
+  }
+
+  nav a:hover { color: var(--text); background: rgba(255,255,255,0.04); }
+  nav .active { color: var(--accent); background: rgba(200,169,110,0.08); font-weight: 500; }
+
+  .nav-divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  .sidebar-footer {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+
+  .lang-switch { display: flex; gap: 8px; font-size: 12px; letter-spacing: 1px; }
+  .lang-switch a, .lang-switch span {
+    color: var(--muted);
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    transition: color 0.2s;
+  }
+  .lang-switch .active { color: var(--accent); background: rgba(200,169,110,0.1); }
+  .lang-switch a:hover { color: var(--text); }
+
+  /* ── CONTENT ── */
+  .content {
+    flex: 1;
+    padding: 72px 80px;
+    max-width: 900px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .eyebrow::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+  h1 em { font-style: italic; color: var(--accent2); }
+
+  .subtitle {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 580px;
+    margin-bottom: 16px;
+    line-height: 1.8;
+  }
+
+  .lead {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 56px;
+    font-style: italic;
+  }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  /* PROCESS STEPS */
+  .process {
+    position: relative;
+    margin-bottom: 64px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .process-step {
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    gap: 0 28px;
+    margin-bottom: 4px;
+  }
+
+  .step-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-num {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(200,169,110,0.1);
+    border: 1px solid rgba(200,169,110,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .step-line {
+    width: 1px;
+    flex: 1;
+    min-height: 24px;
+    background: linear-gradient(to bottom, rgba(200,169,110,0.3), rgba(200,169,110,0.05));
+    margin: 6px 0;
+  }
+
+  .process-step:last-child .step-line { display: none; }
+
+  .step-body {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 24px 28px;
+    margin-bottom: 8px;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .step-body:hover {
+    border-color: rgba(200,169,110,0.25);
+    background: var(--navy3);
+  }
+
+  .step-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  /* PRINCIPLES + OUTCOME */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 56px;
+    animation: fadeUp 0.7s cubic-bezier(0.16,1,0.3,1) both;
+    animation-delay: 0.15s;
+  }
+
+  .info-box {
+    background: var(--navy2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 32px 28px;
+    transition: border-color 0.25s;
+  }
+
+  .info-box:hover { border-color: rgba(200,169,110,0.2); }
+
+  .info-box h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .info-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .info-list li {
+    display: flex;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .info-list li::before {
+    content: '—';
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* FOOTER */
+  footer {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  /* MOBILE */
+  @media (max-width: 860px) {
+    body { flex-direction: column; }
+    .sidebar { width: 100%; min-height: unset; height: auto; position: relative; border-right: none; border-bottom: 1px solid var(--border); padding: 24px; }
+    .sidebar-footer { margin-top: 24px; }
+    .content { padding: 40px 24px; }
+    .two-col { grid-template-columns: 1fr; }
+    .process-step { grid-template-columns: 44px 1fr; gap: 0 16px; }
+  }
+</style>
+</head>
 <body>
 
 <div class="sidebar">
- <!-- LOGO -->
-  <div class="logo">
+  <div class="sidebar-logo">
     <img src="/assets/logo.png" alt="Casino Compliance Logo">
   </div>
-  <div class="sidebar-title">Casino Compliance</div>
-  <nav class="nav">
+  <div class="sidebar-brand">Casino Compliance</div>
+
+  <div class="nav-section">Spielerservice</div>
+  <nav>
     <a href="index.html">Übersicht</a>
-    <a href="self-exclusion.html">Selbstausschluss</a>
-    <a href="refund-claims.html">Rückerstattungen & Beschwerden</a>
-    <span class="active">Beschwerdeverfahren</span>
-    <a href="legal-notice.html">Rechtliche Hinweise</a>
-    <a href="contact.html">Kontakt</a>
+    <a href="self-exclusion.html">Selbstsperre</a>
+    <a href="refund-claims.html">Rückforderung & Beschwerden</a>
+    <span class="active">Schlichtungsverfahren</span>
   </nav>
+
+  <div class="nav-divider"></div>
+
+  <div class="nav-section">Anbieter</div>
+  <nav>
+    <a href="for-operators.html">Für Betreiber</a>
+  </nav>
+
+  <div class="nav-divider"></div>
+
+  <nav>
+    <a href="contact.html">Kontakt</a>
+    <a href="legal-notice.html">Impressum</a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="lang-switch">
+      <a href="/dispute-process.html">EN</a>
+      <span class="active">DE</span>
+    </div>
+  </div>
 </div>
 
 <div class="content">
-<div class="language-switch">
-  <a href="/dispute-process.html">EN</a>
-  <span class="active">DE</span>
-</div>
 
-  <h1>Beschwerdeverfahren</h1>
+  <div class="eyebrow">Arbeitsweise</div>
+  <h1>Das <em>Beschwerdeverfahren</em></h1>
 
-  <p>
-    Diese Seite beschreibt das strukturierte Verfahren zur Bearbeitung von
-    Beschwerden und Streitfällen im Zusammenhang mit mutmaßlichen Verstößen
-    gegen Spielerschutz- und Selbstausschlussverpflichtungen.
+  <p class="subtitle">
+    Ein strukturierter, dokumentenbasierter Ansatz zur Bearbeitung von Ansprüchen bei mutmaßlichen Verstößen gegen Spielerschutz- und Selbstsperre-Verpflichtungen.
   </p>
+  <p class="lead">Alle Fälle werden auf der Grundlage dokumentierter Fakten und nachprüfbarer Beweise bearbeitet.</p>
 
-  <h2>Verfahrensübersicht</h2>
-  <ol>
-    <li>Aufnahme des Sachverhalts und Abstimmung mit dem Spieler</li>
-    <li>Sichtung und Sicherung relevanter Nachweise</li>
-    <li>Compliance-basierte Bewertung des Betreiberverhaltens</li>
-    <li>Formalisierte Mitteilung an den Betreiber</li>
-    <li>Auswertung der Betreiberantwort</li>
-    <li>Gegebenenfalls strukturierte Eskalation</li>
-  </ol>
+  <div class="section-label">Prozessübersicht</div>
 
-  <h2>Leitprinzipien</h2>
-  <ul>
-    <li>Dokumentationsbasierte Bearbeitung</li>
-    <li>Keine spekulativen oder unbegründeten Ansprüche</li>
-    <li>Klare Fristen und definierte Eskalationsstufen</li>
-    <li>Sachliche, nicht konfrontative Erstkommunikation</li>
-  </ul>
+  <div class="process">
 
-  <h2>Ergebnis</h2>
-  <p>
-    Wird ein Verstoß gegen verpflichtende Spielerschutzmaßnahmen festgestellt,
-    können Rückerstattungen oder weitere Abhilfemaßnahmen angestoßen werden.
-    Jeder Fall wird individuell bewertet.
-  </p>
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">1</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Fallaufnahme & Mandatierung</div>
+        <p class="step-desc">Der Spieler bevollmächtigt Casino Compliance formell mit der Koordination des Streitfalls. Wir legen den Umfang fest, sammeln erste Informationen und bestätigen, dass der Fall in unseren Servicebereich fällt.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">2</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Beweisprüfung & Sicherung</div>
+        <p class="step-desc">Relevante Unterlagen werden geprüft und gesichert – einschließlich Selbstsperre-Mitteilungen, Übermittlungsprotokollen, Kontoaktivitäten und Transaktionsdaten. Vor dem Erstkontakt mit dem Betreiber wird ein klarer Sachverhalt erstellt.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">3</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Compliance-Bewertung</div>
+        <p class="step-desc">Die Handlungen des Betreibers werden an den geltenden Spielerschutzpflichten und verbindlichen Standards gemessen. Wir identifizieren den spezifischen Verstoß und bestimmen den geeigneten Lösungsweg.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">4</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Formelle Mitteilung an den Betreiber</div>
+        <p class="step-desc">Dem Betreiber wird eine strukturierte Anspruchsbegründung zugestellt, die die Faktenlage, die Compliance-Position und die geforderte Lösung darlegt – mit einer definierten Antwortfrist. Die Kommunikation bleibt in dieser Phase professionell und sachlich.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">5</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Prüfung der Rückmeldung</div>
+        <p class="step-desc">Die Antwort des Betreibers wird auf Angemessenheit und Übereinstimmung mit den dokumentierten Fakten geprüft. Ist die Antwort zufriedenstellend, arbeiten wir auf eine endgültige Einigung hin. Wenn nicht, wird der Fall eskaliert.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-left">
+        <div class="step-num">6</div>
+        <div class="step-line"></div>
+      </div>
+      <div class="step-body">
+        <div class="step-title">Eskalation</div>
+        <p class="step-desc">In Abwesenheit einer zufriedenstellenden Lösung wird der Streitfall eskaliert – einschließlich der Weiterleitung an ADR-Stellen, Aufsichtsbehörden (MGA, Curaçao eGaming) oder Drittanbieter-Plattformen wie AskGamblers oder Casino Guru.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="two-col">
+    <div class="info-box">
+      <h3>Leitprinzipien</h3>
+      <ul class="info-list">
+        <li>Bearbeitung ausschließlich auf Dokumentenbasis</li>
+        <li>Keine spekulativen oder unbegründeten Ansprüche</li>
+        <li>Klare Zeitpläne und definierte Eskalationsstufen</li>
+        <li>Compliance-fokussierter, sachlicher Erstansatz</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h3>Ergebnis</h3>
+      <ul class="info-list">
+        <li>Bei Feststellung eines Verstoßes kann die Erstattung betroffener Transaktionen angestrebt werden</li>
+        <li>Jeder Fall wird individuell nach seinem faktischen und regulatorischen Kontext bewertet</li>
+        <li>Vollständige Falldokumentation nach Abschluss</li>
+        <li>Keine Rechtsberatung oder rechtliche Vertretung</li>
+      </ul>
+    </div>
+  </div>
 
   <footer>
-    Casino Compliance ist ein unabhängiger Dienst zur Koordination von
-    Compliance- und Beschwerdeprozessen. Keine Rechtsberatung, keine Vertretung.
+    Casino Compliance ist ein unabhängiger Dienst zur Koordination von Compliance- und Schlichtungsverfahren.
+    Es erfolgt keine Rechtsberatung, keine rechtliche Vertretung und keine behördliche Tätigkeit.
   </footer>
 
 </div>
 </body>
 </html>
-
