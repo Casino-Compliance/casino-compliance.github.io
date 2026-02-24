@@ -3,13 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Casino Compliance – Submit a Dispute or Inquiry</title>
+<title>Contact – Casino Compliance</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-47Z20RJ8W4"></script>
-
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-47Z20RJ8W4');
+</script>
 
 <style>
   :root {
@@ -38,6 +43,7 @@
   /* ── SIDEBAR ── */
   .sidebar {
     width: 260px;
+    min-height: 100vh;
     background: var(--navy2);
     border-right: 1px solid var(--border);
     padding: 36px 24px;
@@ -47,10 +53,7 @@
     top: 0;
     height: 100vh;
     flex-shrink: 0;
-    overflow-y: auto;
-    scrollbar-width: none;
   }
-  .sidebar::-webkit-scrollbar { display: none; }
 
   .sidebar-logo { margin-bottom: 10px; }
   .sidebar-logo img { max-width: 148px; height: auto; display: block; }
@@ -368,7 +371,6 @@
     .form-actions { flex-direction: column; align-items: flex-start; }
   }
 </style>
-<meta name="description" content="Contact us to start a casino complaint, self-exclusion claim, or refund dispute. We respond within 48 business hours. No legal advice provided.">
 </head>
 <body>
 
@@ -416,13 +418,13 @@
   <h1>Contact <em>Us</em></h1>
 
   <p class="subtitle">
-    Send us a message below or write directly to <a href="/cdn-cgi/l/email-protection#3d4e484d4d524f497d5e5c4e545352105e52504d51545c535e58135e5250"><span class="__cf_email__" data-cfemail="e695939696899492a68587958f8889cb85898b968a8f87888583c885898b">[email&#160;protected]</span></a>. We respond within 48 business hours.
+    Send us a message below or write directly to <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>. We respond within 48 business hours.
   </p>
 
   <!-- FORM -->
   <div class="contact-form">
     <div class="section-label">Send a Message</div>
-    <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <form id="contactForm">
       <div class="form-grid">
         <div class="form-group">
           <label for="name">Your Name</label>
@@ -450,12 +452,11 @@
       </div>
       <div class="form-actions">
         <span class="form-note">No legal advice provided. All communications are documented.</span>
-        <button type="submit" class="btn" data-label="Send Message" data-sending="Sending…">Send Message</button>
+        <button type="submit" class="btn">Send Message</button>
       </div>
       <div class="form-success" id="formSuccess">
         ✓ Message sent. We will respond within 48 business hours.
       </div>
-    <div class="form-success" id="formError" style="border-color:rgba(255,80,80,0.3); background:rgba(255,80,80,0.06); color:#f08080;">✗ Something went wrong. Please write directly to <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="85f6f0f5f5eaf7f1c5e6e4f6ecebeaa8e6eae8f5e9ece4ebe6e0abe6eae8">[email&#160;protected]</a></div>
     </form>
   </div>
 
@@ -465,7 +466,7 @@
       <span class="contact-block-icon">✉️</span>
       <h3>Direct Email</h3>
       <p>Prefer to write directly? We respond within 48 business hours.</p>
-      <a href="/cdn-cgi/l/email-protection#7d0e080d0d120f093d1e1c0e141312501e12100d11141c131e18531e1210"><span class="__cf_email__" data-cfemail="8ffcfaffffe0fdfbcfeceefce6e1e0a2ece0e2ffe3e6eee1eceaa1ece0e2">[email&#160;protected]</span></a>
+      <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>
     </div>
     <div class="contact-block">
       <span class="contact-block-icon">📋</span>
@@ -495,4 +496,53 @@
   </div>
 
   <footer>
-    Casino Compliance is an independent compliance and dispute coordination service. No legal advice, representation or regul
+    Casino Compliance is an independent compliance and dispute coordination service. No legal advice, representation or regulatory authority is provided.
+  </footer>
+
+</div>
+
+<script>
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = this.querySelector('button[type="submit"]');
+    const success = document.getElementById('formSuccess');
+    const error = document.getElementById('formError');
+
+    btn.textContent = btn.dataset.sending;
+    btn.disabled = true;
+    success.style.display = 'none';
+    error.style.display = 'none';
+
+    const payload = {
+      name:    this.querySelector('[name="name"]').value,
+      email:   this.querySelector('[name="email"]').value,
+      subject: this.querySelector('[name="subject"]').value,
+      message: this.querySelector('[name="message"]').value,
+    };
+
+    const API_URL = 'https://a7bb08t1s1.execute-api.eu-central-1.amazonaws.com/contact';
+
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (res.ok) {
+        success.style.display = 'block';
+        this.reset();
+      } else {
+        throw new Error('Server error');
+      }
+    } catch (err) {
+      error.style.display = 'block';
+    } finally {
+      btn.textContent = btn.dataset.label;
+      btn.disabled = false;
+    }
+  });
+</script>
+
+</body>
+</html>
