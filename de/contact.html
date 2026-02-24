@@ -9,12 +9,7 @@
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-47Z20RJ8W4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-47Z20RJ8W4');
-</script>
+
 
 <style>
   :root {
@@ -43,7 +38,6 @@
   /* ── SIDEBAR ── */
   .sidebar {
     width: 260px;
-    min-height: 100vh;
     background: var(--navy2);
     border-right: 1px solid var(--border);
     padding: 36px 24px;
@@ -53,7 +47,10 @@
     top: 0;
     height: 100vh;
     flex-shrink: 0;
+    overflow-y: auto;
+    scrollbar-width: none;
   }
+  .sidebar::-webkit-scrollbar { display: none; }
 
   .sidebar-logo { margin-bottom: 10px; }
   .sidebar-logo img { max-width: 148px; height: auto; display: block; }
@@ -418,7 +415,7 @@
   <h1>Schreiben <em>Sie uns</em></h1>
 
   <p class="subtitle">
-    Senden Sie uns eine Nachricht oder schreiben Sie direkt an <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>. Wir antworten innerhalb von 48 Wertstunden.
+    Senden Sie uns eine Nachricht oder schreiben Sie direkt an <a href="/cdn-cgi/l/email-protection#d7a4a2a7a7b8a5a397b4b6a4beb9b8fab4b8baa7bbbeb6b9b4b2f9b4b8ba"><span class="__cf_email__" data-cfemail="493a3c3939263b3d092a283a202726642a262439252028272a2c672a2624">[email&#160;protected]</span></a>. Wir antworten innerhalb von 48 Wertstunden.
   </p>
 
   <!-- FORM -->
@@ -452,11 +449,12 @@
       </div>
       <div class="form-actions">
         <span class="form-note">Keine Rechtsberatung. Alle Kommunikation wird dokumentiert.</span>
-        <button type="submit" class="btn">Nachricht senden</button>
+        <button type="submit" class="btn" data-label="Nachricht senden" data-sending="Wird gesendet…">Nachricht senden</button>
       </div>
       <div class="form-success" id="formSuccess">
         ✓ Nachricht gesendet. Wir melden uns innerhalb von 48 Wertstunden.
       </div>
+    <div class="form-success" id="formError" style="border-color:rgba(255,80,80,0.3); background:rgba(255,80,80,0.06); color:#f08080;">✗ Ein Fehler ist aufgetreten. Bitte schreiben Sie direkt an <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8ffcfaffffe0fdfbcfeceefce6e1e0a2ece0e2ffe3e6eee1eceaa1ece0e2">[email&#160;protected]</a></div>
     </form>
   </div>
 
@@ -466,7 +464,7 @@
       <span class="contact-block-icon">✉️</span>
       <h3>Direkte E-Mail</h3>
       <p>Lieber direkt schreiben? Wir antworten innerhalb von 48 Wertstunden.</p>
-      <a href="mailto:support@casino-compliance.com">support@casino-compliance.com</a>
+      <a href="/cdn-cgi/l/email-protection#ee9d9b9e9e819c9aae8d8f9d878081c38d81839e82878f808d8bc08d8183"><span class="__cf_email__" data-cfemail="7d0e080d0d120f093d1e1c0e141312501e12100d11141c131e18531e1210">[email&#160;protected]</span></a>
     </div>
     <div class="contact-block">
       <span class="contact-block-icon">📋</span>
@@ -479,6 +477,7 @@
   <div class="notes">
     <div class="section-label">Bitte beachten</div>
     <ul class="notes-list">
+      <li>Unaufgeforderte Einsendungen ohne vorherigen Kontakt werden nicht geprüft</li>
       <li>Es werden keine Rechtsberatung, Vertretung oder Regulierungsbefugnisse angeboten</li>
       <li>Alle Kommunikation wird für Fallkoordinationszwecke dokumentiert</li>
       <li>Wir akzeptieren keine Drittanbieter-Vermittlungen ohne Zustimmung des Betreibers</li>
@@ -495,22 +494,4 @@
   </div>
 
   <footer>
-    Casino Compliance ist ein unabhängiger Compliance- und Streitkoordinierungsservice. Es werden keine Rechtsberatung, Vertretung oder Regulierungsbefugnisse angeboten.
-  </footer>
-
-</div>
-
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    if (this.action.includes('YOUR_FORM_ID')) {
-      e.preventDefault();
-      const success = document.getElementById('formSuccess');
-      success.style.display = 'block';
-      this.reset();
-      setTimeout(() => { success.style.display = 'none'; }, 5000);
-    }
-  });
-</script>
-
-</body>
-</html>
+    Casino Compliance ist ein unabhängiger Compliance- und Streitkoordinierungsservice. Es werden keine Rechtsberatung, Vertretung oder Regul
